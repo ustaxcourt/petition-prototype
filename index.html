@@ -1,13 +1,56 @@
 <!doctype html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Petition Prototype</title>
-</head>
+    <link rel="stylesheet" href="assets/uswds-1.6.4/css/uswds.min.css">
 <body>
-    <header>
 
-    </header>
-    <main>
+<a class="usa-skipnav" href="#main-content">Skip to main content</a>
+<header class="usa-header usa-header-basic" role="banner">
+<!-- Gov banner BEGIN -->
+<div class="usa-banner">
+    <div class="usa-accordion">
+        <header class="usa-banner-header">
+            <div class="usa-grid usa-banner-inner">
+                <img src="assets/uswds-1.6.4/img/favicons/favicon-57.png" alt="U.S. flag">
+                <p>An official website of the United States government</p>
+                <button class="usa-accordion-button usa-banner-button" aria-expanded="false" aria-controls="gov-banner">
+                    <span class="usa-banner-button-text">Here's how you know</span>
+                </button>
+            </div>
+        </header>
+        <div class="usa-banner-content usa-grid usa-accordion-content" id="gov-banner">
+            <div class="usa-banner-guidance-gov usa-width-one-half">
+                <img class="usa-banner-icon usa-media_block-img" src="assets/img/icon-dot-gov.svg" alt="Dot gov">
+                <div class="usa-media_block-body">
+                    <p>
+                        <strong>The .gov means it’s official.</strong><br>
+                        Federal government websites always use a .gov or .mil domain. Before sharing sensitive information online, make sure you’re on a .gov or .mil site by inspecting your browser’s address (or “location”) bar.
+                    </p>
+                </div>
+            </div>
+            <div class="usa-banner-guidance-ssl usa-width-one-half">
+                <img class="usa-banner-icon usa-media_block-img" src="assets/img/icon-https.svg" alt="SSL">
+                <div class="usa-media_block-body">
+                    <p>This site is also protected by an SSL (Secure Sockets Layer) certificate that’s been signed by the U.S. government. The <strong>https://</strong> means all transmitted data is encrypted  — in other words, any information or browsing history that you provide is transmitted securely.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Gov banner END -->
+</header>
+<div class="usa-overlay"></div>
+<main class="usa-grid usa-section usa-content usa-layout-docs" id="main-content">
+    
+    <aside class="usa-width-one-fourth usa-layout-docs-sidenav">
+        sidebar to come
+    </aside>
+
+    <div class="usa-width-three-fourths usa-layout-docs-main_content"></div>
+        <h1>Petition</h1>
         <form>
             (FIRST) (MIDDLE) (LAST)
             (FIRST) (MIDDLE) (LAST)
@@ -86,11 +129,11 @@
             State of legal residence (if different from the mailing address): <input type="text">
 
             E-mail address (if any): <input type="text">
-           
+            
             SIGNATURE OF COUNSEL, IF RETAINED BY PETITIONER(S) <input type="text">
             NAME OF COUNSEL <input type="text">
             TAX COURT BAR NO. <input type="text">
-           
+            
             MAILING ADDRESS <input type="text">
             CITY <input type="text">
             STATE <input type="text">
@@ -102,6 +145,48 @@
             (AREA CODE) TELEPHONE NO. <input type="text">
 
         </form>
-    </main>
+    </div>
+</main>
+<footer class="usa-footer usa-footer-medium" role="contentinfo">
+    <div class="usa-grid usa-footer-return-to-top">
+        <a href="#">Return to top</a>
+    </div>
+    <div class="usa-footer-primary-section">
+        <div class="usa-grid-full">
+            <nav class="usa-footer-nav">
+                <ul class="usa-unstyled-list">
+                    <li class="usa-width-one-fourth usa-footer-primary-content">
+                        <a class="usa-footer-primary-link" href="javascript:void(0);">Primary link</a>
+                    </li>
+                    <li class="usa-width-one-fourth usa-footer-primary-content">
+                        <a class="usa-footer-primary-link" href="javascript:void(0);">Permanently relevant</a>
+                    </li>
+                    <li class="usa-width-one-fourth usa-footer-primary-content">
+                        <a class="usa-footer-primary-link" href="javascript:void(0);">Easy to understand</a>
+                    </li>
+                    <li class="usa-width-one-fourth usa-footer-primary-content">
+                        <a class="usa-footer-primary-link" href="javascript:void(0);">Site policies (example)</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="usa-footer-secondary_section">
+        <div class="usa-grid">
+            <div class="usa-footer-logo usa-width-one-half">
+                <img class="usa-footer-logo-img" src="assets/img/seal.png" alt="U.S. Tax Court seal">
+                <h3 class="usa-footer-logo-heading">United States Tax Court</h3>
+            </div>
+            <div class="usa-footer-contact-links usa-width-one-half">
+                <address>
+                    <h3 class="usa-footer-contact-heading">Office of the Clerk</h3>
+                    <p>(202) 521-0700</p>
+                    <a href="mailto:info@agency.gov">webmaster@ustaxcourt.gov</a>
+                </address>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
