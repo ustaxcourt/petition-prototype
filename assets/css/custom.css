@@ -1,0 +1,4 @@
+/* Eliminate the label margin on the list of trial locations. */
+#trial-place label {
+    margin: 0;
+}
