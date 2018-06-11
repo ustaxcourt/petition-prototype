@@ -1,0 +1,22 @@
+{
+  "name": "petition-prototype",
+  "version": "1.0.0",
+  "description": "Prototyping a web-based interface for filing petitions with the court, based on [T.C. Form 5](https://ustaxcourt.gov/forms/Petition_Kit.pdf).",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ustaxcourt/petition-prototype.git"
+  },
+  "author": "18F Acquisitions",
+  "license": "CC0",
+  "bugs": {
+    "url": "https://github.com/ustaxcourt/petition-prototype/issues"
+  },
+  "homepage": "https://github.com/ustaxcourt/petition-prototype#readme",
+  "dependencies": {
+    "uswds": "*"
+  }
+}
