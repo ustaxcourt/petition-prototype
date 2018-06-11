@@ -2,11 +2,8 @@ version: 2
 jobs:
   test-3.6:
     docker:
-      - image: circleci/node
+      - image: circleci/openjdk-node
     steps:
-      - run:
-          name: Install Java
-          command: sudo apt-get update && sudo apt install -t jessie-backports openjdk-8-jre-headless ca-certificates-java
       - checkout
       - run:
           name: Update npm
