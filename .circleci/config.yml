@@ -13,7 +13,7 @@ jobs:
           command: pip install html5validator
       - run:
           name: validate html
-          command: html5validator --root . --also-check-css --blacklist ./assets/uswds-1.6.4
+          command: html5validator --root . --also-check-css --blacklist /root/project/.assets/uswds-1.6.4
 workflows:
   version: 2
   build_and_test:
