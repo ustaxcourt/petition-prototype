@@ -2,11 +2,11 @@ version: 2
 jobs:
   test-3.6:
     docker:
-      - image: python:3.6-stretch
+      - image: circleci/node
     steps:
       - run:
-          name: Install Java and nodejs
-          command: apt-get update && apt-get install -y openjdk-8-jre nodejs
+          name: Install Java
+          command: apt-get update && apt-get install -y openjdk-8-jre
       - checkout
       - run:
           name: Update npm
