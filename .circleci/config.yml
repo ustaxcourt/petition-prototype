@@ -12,16 +12,16 @@ jobs:
           name: Update npm
           command: npm install -g npm@latest
       - run:
-          name: Install npm
+          name: Install npm dependencies
           command: npm install
       - run:
-          name: install
+          name: Install html5validator
           command: pip install html5validator
       - run:
-          name: validate html
+          name: Validate html
           command: html5validator --root . --also-check-css
       - run:
-          name: 
+          name: Move USWDS assets to webroot
           command: cp -R node_modules/uswds/dist/ assets/uswds/
 workflows:
   version: 2
