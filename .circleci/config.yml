@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: install
-          command: pip install '.[test]']
+          command: pip install html5validator
       - run:
           name: validate html
           command: html5validator --root . --also-check-css
