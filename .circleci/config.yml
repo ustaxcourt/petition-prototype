@@ -2,7 +2,7 @@ version: 2
 jobs:
   test-3.6:
     docker:
-      - image: circleci/openjdk-node
+      - image: circleci/openjdk:8-jdk-node-browsers
     steps:
       - checkout
       - run:
