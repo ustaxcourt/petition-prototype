@@ -2,3 +2,8 @@
 #trial-place label {
     margin: 0;
 }
+#beta-alert {
+    background-color: rgb(245, 108, 108);
+    color: #000;
+    padding-left: 2em;
+}
