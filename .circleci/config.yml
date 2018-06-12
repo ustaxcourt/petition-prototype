@@ -15,14 +15,14 @@ jobs:
           name: Update npm
           command: sudo npm install -g npm@latest
       - run:
-          name: Install npm dependencies
-          command: npm install
-      - run:
           name: Install html5validator
           command: pip install html5validator
       - run:
           name: Validate html
           command: ~/.local/bin/html5validator --root . --also-check-css
+      - run:
+          name: Install npm dependencies
+          command: npm install
       - run:
           name: Compile SCSS
           command: sass assets/scss/* assets/css/compiled.css
