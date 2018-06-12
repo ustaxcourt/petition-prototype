@@ -22,7 +22,7 @@ jobs:
           command: pip install html5validator
       - run:
           name: Validate html
-          command: html5validator --root . --also-check-css
+          command: ~/.local/bin/html5validator --root . --also-check-css
       - run:
           name: Compile SCSS
           command: sass assets/scss/* assets/css/compiled.css
