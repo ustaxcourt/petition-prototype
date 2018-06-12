@@ -52,58 +52,97 @@
 
     <div class="usa-width-three-fourths usa-layout-docs-main_content">
         <h1>Petition</h1>
+
         <form>
-            (FIRST) (MIDDLE) (LAST)
-            (FIRST) (MIDDLE) (LAST)
-            <input type="text"> <input type="text"> <input type="text">
-            <input type="text"> <input type="text"> <input type="text">
-            (PLEASE TYPE OR PRINT) Petitioner(s)
-            v.
-            COMMISSIONER OF INTERNAL REVENUE,
-            Respondent
-
-            <p>1. Please check the appropriate box(es) to show which IRS NOTICE(s) you dispute:</p>
             
-            <input type="checkbox" id="deficiency"><label for="deficiency">Notice of Deficiency</label>
-            <input type="checkbox" id="collection"><label for="collection">Notice of Determination Concerning Collection Action</label>
-            <input type="checkbox" id="abate"><label for="abate">Notice of Final Determination Not to Abate Interest*</label>
-            <input type="checkbox" id="worker-classification"><label for="worker-classification">Determination of Worker Classification*</label>
-            <input type="checkbox" id="joint-liability"><label for="joint-liability">Notice of Determination Concerning Your Request for Relief From Joint and Several Liability*</label>
+            <fieldset>
+                <legend>Petitioners</legend>
+                <fieldset>
+                    <legend>First Petitioner</legend>
+                    <label for="name_1_first">First</label><input type="text" name="name_1_first" id="name_1_first">
+                    <label for="name_1_middle">Middle</label><input type="text" name="name_1_middle" id="name_1_middle">
+                    <label for="name_1_last">Last</label><input type="text" name="name_1_last" id="name_1_last">
+                </fieldset>
+                <fieldset>
+                    <legend>Second Petitioner</legend>
+                    <label for="name_2_first">First</label><input type="text" name="name_2_first" id="name_2_first">
+                    <label for="name_2_middle">Middle</label><input type="text" name="name_2_middle" id="name_2_middle">
+                    <label for="name_2_last">Last</label><input type="text" name="name_2_last" id="name_2_last">
+                </fieldset>
+            </fieldset>
 
+            <p>Petitioner(s)<br>
+            v.<br>
+            COMMISSIONER OF INTERNAL REVENUE,<br>
+            Respondent</p>
+            
+            <fieldset>
+                <legend>1. Please check the appropriate box(es) to show which IRS NOTICE(s) you dispute:</legend>
+                
+                <input type="checkbox" name="notices_disputed" id="deficiency">
+                <label for="deficiency">Notice of Deficiency</label>
+
+                <input type="checkbox" name="notices_disputed" id="collection">
+                <label for="collection">Notice of Determination Concerning Collection Action</label>
+
+                <input type="checkbox" name="notices_disputed" id="abate">
+                <label for="abate">Notice of Final Determination Not to Abate Interest*</label>
+
+                <input type="checkbox" name="notices_disputed" id="worker-classification">
+                <label for="worker-classification">Determination of Worker Classification*</label>
+
+                <input type="checkbox" name="notices_disputed" id="joint-liability">
+                <label for="joint-liability">Notice of Determination Concerning Your Request for Relief From Joint and Several Liability*</label>
+            </fieldset>
+            
             <p>* Please see the Court’s Web site, www.ustaxcourt.gov, or information booklet for additional information if (1) you filed a claim for interest abatement or requested relief from joint and several liability, and the IRS has not made a determination, or (2) the petition involves a worker classification case.</p>
 
-            <p>2. Provide the date(s) the IRS issued the NOTICE(S) checked above and the city and State of the IRS office(s) issuing the NOTICE(S): <input type="text"></p>
+            <fieldset>
+                <legend>2. Provide the date(s) the IRS issued the NOTICE(S) checked above and the city and State of the IRS office(s) issuing the NOTICE(S):</legend>
+                <input type="text">
+            </fieldset>
 
-            <p>3. Provide the year(s) or period(s) for which the NOTICE(S) was/were issued: <input type="text"></p>
+            <fieldset>
+                <legend>3. Provide the year(s) or period(s) for which the NOTICE(S) was/were issued:</legend>
+                <input type="text">
+            </fieldset>
 
-            <p>4. SELECT ONE OF THE FOLLOWING:
-            <p><label for="small-tax">If you want your case conducted under small tax case procedures, check here:</label><input id="small-tax" type="checkbox"></p>
-            <p><label for="regular-tax">If you want your case conducted under regular tax case procedures, check here:</label><input id="regular-tax" type="checkbox"></p>
-
-            <p>(CHECK ONE BOX)</p>
+            <fieldset>
+                <legend>4. SELECT ONE OF THE FOLLOWING:</legend>
+                <input id="small-tax" name="case-procedures" value="small-tax" type="radio" title="Small tax case procudures"> If you want your case conducted under small tax case procedures<br>
+                <input id="regular-tax" name="case-procedures" value="regular-tax" type="radio" title="Regular tax case procudures"> If you want your case conducted under regular tax case procedures
+            </fieldset>
             
             <p>NOTE: A decision in a “small tax case” cannot be appealed to a Court of Appeals by the taxpayer or the IRS. If you do not check either box, the Court will file your case as a regular tax case.</p>
 
-            <p>5. Explain why you disagree with the IRS determination in this case (please list each point separately):</p>
+            <fieldset>
+                <legend>5. Explain why you disagree with the IRS determination in this case (please list each point separately):</legend>
+                <textarea></textarea>
+            </fieldset>
 
-            <textarea></textarea>
-
-            <p>6. State the facts upon which you rely (please list each point separately):</p>
-
-            <textarea></textarea>
+            <fieldset>
+                <legend>6. State the facts upon which you rely (please list each point separately):</legend>
+                <textarea></textarea>
+            </fieldset>
 
             <p>You may use additional pages to explain why you disagree with the IRS determination or to state additional facts. Please do not submit tax forms, receipts, or other types of evidence with this petition.</p>
 
             <p>ENCLOSURES:<br>
             Please check the appropriate boxes to show that you have enclosed the following items with this petition:<br>
-            <input type="checkbox" id="enclosed-notices"><label for="enclosed-notices">A copy of any NOTICE(S) the IRS issued to you</label>
-            <input type="checkbox" id="enclosed-tin"><label for="enclosed-tin">Statement of Taxpayer Identification Number (Form 4) (See PRIVACY NOTICE below)</label>
-            <input type="checkbox" id="enclosed-place"><label for="enclosed-place">The Request for Place of Trial (Form 5)</label>
+            
+            <input type="checkbox" id="enclosed-notices">
+            <label for="enclosed-notices">A copy of any NOTICE(S) the IRS issued to you</label>
+            
+            <input type="checkbox" id="enclosed-tin">
+            <label for="enclosed-tin">Statement of Taxpayer Identification Number (Form 4) (See PRIVACY NOTICE below)</label>
+            
+            <input type="checkbox" id="enclosed-place">
+            <label for="enclosed-place">The Request for Place of Trial (Form 5)</label>
 
-            <p>PRIVACY NOTICE: Form 4 (Statement of Taxpayer Identification Number) will not be part of the Court’s public files. All other documents filed with the Court, including this Petition and any IRS Notice that you enclose with this Petition, will become part of the Court’s public files. To protect your privacy, you are strongly encouraged to omit or remove from this Petition, from any enclosed IRS Notice, and from any other document (other than Form 4) your taxpayer identification number (e.g., your Social Security number) and certain other confidential information as specified in the Tax Court’s “Notice Regarding Privacy and Public Access to Case Files”, available at www.ustaxcourt.gov.</p>
+            <p>PRIVACY NOTICE: Form 4 (Statement of Taxpayer Identification Number) will not be part of the Court’s public files. All other documents filed with the Court, including this Petition and any IRS Notice that you enclose with this Petition, will become part of the Court’s public files. To protect your privacy, you are strongly encouraged to omit or remove from this Petition, from any enclosed IRS Notice, and from any other document (other than Form 4) your taxpayer identification number (e.g., your Social Security number) and certain other confidential information as specified in the Tax Court’s “Notice Regarding Privacy and Public Access to Case Files”, available at <a href="https://www.ustaxcourt.gov/">www.ustaxcourt.gov</a>.</p>
 
             SIGNATURE OF PETITIONER
-            DATE <input type="text">
+            DATE <input type="date">
             
             (AREA CODE) TELEPHONE NO. <input type="text">
             
@@ -117,7 +156,7 @@
             E-mail address (if any): <input type="text">
             
             SIGNATURE OF ADDITIONAL PETITIONER (e.g., SPOUSE)
-            DATE <input type="text">
+            DATE <input type="date">
             
             (AREA CODE) TELEPHONE NO. <input type="text">
             
@@ -128,7 +167,7 @@
             
             State of legal residence (if different from the mailing address): <input type="text">
 
-            E-mail address (if any): <input type="text">
+            E-mail address (if any): <input type="email">
             
             SIGNATURE OF COUNSEL, IF RETAINED BY PETITIONER(S) <input type="text">
             NAME OF COUNSEL <input type="text">
@@ -138,20 +177,34 @@
             CITY <input type="text">
             STATE <input type="text">
             ZIP CODE <input type="text">
-            DATE <input type="text">
+            DATE <input type="date">
             
-            E-MAIL ADDRESS <input type="text">
+            E-MAIL ADDRESS <input type="email">
             
             (AREA CODE) TELEPHONE NO. <input type="text">
 
             <hr>
+            
+            <fieldset>
+                <legend>Petitioners</legend>
+                <fieldset>
+                    <legend>First Petitioner</legend>
+                    <label for="name_1_first">First</label><input type="text" name="name_1_first" id="name_1_first">
+                    <label for="name_1_middle">Middle</label><input type="text" name="name_1_middle" id="name_1_middle">
+                    <label for="name_1_last">Last</label><input type="text" name="name_1_last" id="name_1_last">
+                </fieldset>
+                <fieldset>
+                    <legend>Second Petitioner</legend>
+                    <label for="name_2_first">First</label><input type="text" name="name_2_first" id="name_2_first">
+                    <label for="name_2_middle">Middle</label><input type="text" name="name_2_middle" id="name_2_middle">
+                    <label for="name_2_last">Last</label><input type="text" name="name_2_last" id="name_2_last">
+                </fieldset>
+            </fieldset>
 
-            <input type="text"> <input type="text"> <input type="text">
-            <input type="text"> <input type="text"> <input type="text">
-            (PLEASE TYPE OR PRINT) Petitioner(s)
-            v.
-            COMMISSIONER OF INTERNAL REVENUE,
-            Respondent
+            <p>Petitioner(s)<br>
+            v.<br>
+            COMMISSIONER OF INTERNAL REVENUE,<br>
+            Respondent</p>
 
             <h2>STATEMENT OF TAXPAYER IDENTIFICATION NUMBER</h2>
             (E.g., Social Security number(s), employer identification number(s))
@@ -168,152 +221,166 @@
             <input type="text">
 
             <p>SIGNATURE OF PETITIONER OR COUNSEL
-            DATE <input type="text"></p>
+            DATE <input type="date"></p>
 
             <p>SIGNATURE OF ADDITIONAL PETITIONER
-            DATE <input type="text"></p>
+            DATE <input type="date"></p>
 
             <hr>
+            
+            <fieldset>
+                <legend>Petitioners</legend>
+                <fieldset>
+                    <legend>First Petitioner</legend>
+                    <label for="name_1_first">First</label><input type="text" name="name_1_first" id="name_1_first">
+                    <label for="name_1_middle">Middle</label><input type="text" name="name_1_middle" id="name_1_middle">
+                    <label for="name_1_last">Last</label><input type="text" name="name_1_last" id="name_1_last">
+                </fieldset>
+                <fieldset>
+                    <legend>Second Petitioner</legend>
+                    <label for="name_2_first">First</label><input type="text" name="name_2_first" id="name_2_first">
+                    <label for="name_2_middle">Middle</label><input type="text" name="name_2_middle" id="name_2_middle">
+                    <label for="name_2_last">Last</label><input type="text" name="name_2_last" id="name_2_last">
+                </fieldset>
+            </fieldset>
 
-            <input type="text"> <input type="text"> <input type="text">
-            <input type="text"> <input type="text"> <input type="text">
-            (PLEASE TYPE OR PRINT) Petitioner(s)
-            v.
-            COMMISSIONER OF INTERNAL REVENUE,
-            Respondent
+            <p>Petitioner(s)<br>
+            v.<br>
+            COMMISSIONER OF INTERNAL REVENUE,<br>
+            Respondent</p>
 
             <h2>REQUEST FOR PLACE OF TRIAL</h2>
 
             <p><b>PLACE AN “X” IN ONLY ONE BOX TO REQUEST THE PLACE OF TRIAL. IF PETITIONER(S) ELECTED TO HAVE THE CASE CONDUCTED AS A SMALL TAX CASE, REQUEST ANY CITY LISTED BELOW; OTHERWISE, REQUEST ANY CITY NOT MARKED WITH AN ASTERISK (*).</b></p>
             
             <div id="trial-place">
-            <p>ALBAMA<br>
-            <input type="checkbox" id="x-1"><label for="x-1">Birmingham</label><br>
-            <input type="checkbox" id="x-2"><label for="x-2">Mobile</label><br>
+            <p>ALABAMA<br>
+            <input type="checkbox" id="al-birmingham" value="al-birmingham" name="trial-place"><label for="al-birmingham">Birmingham</label><br>
+            <input type="checkbox" id="al-mobile" value="al-mobile" name="trial-place"><label for="al-mobile">Mobile</label><br>
             ALASKA<br>
-            <input type="checkbox" id="x-3"><label for="x-3">Anchorage</label><br>
+            <input type="checkbox" id="ak-anchorage" value="ak-anchorage" name="trial-place"><label for="ak-anchorage">Anchorage</label><br>
             ARIZONA<br>
-            <input type="checkbox" id="x-4"><label for="x-4">Phoenix</label><br>
+            <input type="checkbox" id="az-phoenix" value="az-phoenix" name="trial-place"><label for="az-phoenix">Phoenix</label><br>
             ARKANSAS<br>
-            <input type="checkbox" id="x-5"><label for="x-5">Little Rock</label><br>
+            <input type="checkbox" id="ar-little-rock" value="ar-little-rock" name="trial-place"><label for="ar-little-rock">Little Rock</label><br>
             CAIFORNIA<br>
-            <input type="checkbox" id="x-6"><label for="x-6">Fresno</label><br>
-            <input type="checkbox" id="x-7"><label for="x-7">Los Angeles</label><br>
-            <input type="checkbox" id="x-8"><label for="x-8">San Diego</label><br>
-            <input type="checkbox" id="x-9"><label for="x-9">San Francisco</label><br>
+            <input type="checkbox" id="ca-fresno" value="ca-fresno" name="trial-place"><label for="ca-fresno">Fresno</label><br>
+            <input type="checkbox" id="ca-los-angeles" value="ca-los-angeles" name="trial-place"><label for="ca-los-angeles">Los Angeles</label><br>
+            <input type="checkbox" id="ca-san-diego" value="ca-san-diego" name="trial-place"><label for="ca-san-diego">San Diego</label><br>
+            <input type="checkbox" id="ca-san-francisco" value="ca-san-francisco" name="trial-place"><label for="ca-san-francisco">San Francisco</label><br>
             COLORADO<br>
-            <input type="checkbox" id="x-10"><label for="x-10">Denver</label><br>
+            <input type="checkbox" id="co-denver" value="co-denver" name="trial-place"><label for="co-denver">Denver</label><br>
             CONNECTICUT<br>
-            <input type="checkbox" id="x-11"><label for="x-11">Hartford</label><br>
+            <input type="checkbox" id="ct-hartford" value="ct-hartford" name="trial-place"><label for="ct-hartford">Hartford</label><br>
             DISTRICT OF COLUMBIA<br>
-            <input type="checkbox" id="x-12"><label for="x-12">Washington</label><br>
+            <input type="checkbox" id="dc-washington" value="dc-washington" name="trial-place"><label for="dc-washington">Washington</label><br>
             FLORIDA<br>
-            <input type="checkbox" id="x-13"><label for="x-13">Jacksonville</label><br>
-            <input type="checkbox" id="x-13a"><label for="x-13a">Miami</label><br>
-            <input type="checkbox" id="x-14"><label for="x-14">Tallahassee*</label><br>
-            <input type="checkbox" id="x-15"><label for="x-15">Tampa</label><br>
+            <input type="checkbox" id="fl-jacksonville" value="fl-jacksonville" name="trial-place"><label for="fl-jacksonville">Jacksonville</label><br>
+            <input type="checkbox" id="fl-miami" value="fl-miami" name="trial-place"><label for="fl-miami">Miami</label><br>
+            <input type="checkbox" id="fl-tallahassee" value="fl-tallahassee" name="trial-place"><label for="fl-tallahassee">Tallahassee*</label><br>
+            <input type="checkbox" id="fl-tampa" value="fl-tampa" name="trial-place"><label for="fl-tampa">Tampa</label><br>
             GEORGIA<br>
-            <input type="checkbox" id="x-16"><label for="x-16">Atlanta</label><br>
+            <input type="checkbox" id="ga-atlanta" value="ga-atlanta" name="trial-place"><label for="ga-atlanta">Atlanta</label><br>
             HAWAII<br>
-            <input type="checkbox" id="x-17"><label for="x-17">Honolulu</label><br>
+            <input type="checkbox" id="hi-honolulu" value="hi-honolulu" name="trial-place"><label for="hi-honolulu">Honolulu</label><br>
             IDAHO<br>
-            <input type="checkbox" id="x-18"><label for="x-18">Boise</label><br>
-            <input type="checkbox" id="x-19"><label for="x-19">Pocatello*</label><br>
+            <input type="checkbox" id="id-boise" value="id-boise" name="trial-place"><label for="id-boise">Boise</label><br>
+            <input type="checkbox" id="id-pocatello" value="id-pocatello" name="trial-place"><label for="id-pocatello">Pocatello*</label><br>
             ILLINOIS<br>
-            <input type="checkbox" id="x-20"><label for="x-20">Chicago</label><br>
-            <input type="checkbox" id="x-21"><label for="x-21">Peoria*</label><br>
+            <input type="checkbox" id="il-chicago" value="il-chicago" name="trial-place"><label for="il-chicago">Chicago</label><br>
+            <input type="checkbox" id="il-peoria" value="il-peoria" name="trial-place"><label for="il-peoria">Peoria*</label><br>
             INDIANA<br>
-            <input type="checkbox" id="x-22"><label for="x-22">Indianapolis</label><br>
+            <input type="checkbox" id="in-indianapolis" value="in-indianapolis" name="trial-place"><label for="in-indianapolis">Indianapolis</label><br>
             IOWA<br>
-            <input type="checkbox" id="x-23"><label for="x-23">Des Moines</label><br>
+            <input type="checkbox" id="ia-des-moines" value="ia-des-moines" name="trial-place"><label for="ia-des-moines">Des Moines</label><br>
             KANSAS<br>
-            <input type="checkbox" id="x-24"><label for="x-24">Wichita</label><br>
+            <input type="checkbox" id="ks-wichita" value="ks-wichita" name="trial-place"><label for="ks-wichita">Wichita</label><br>
             KENTUCKY<br>
-            <input type="checkbox" id="x-25"><label for="x-25">Louisville</label><br>
+            <input type="checkbox" id="ky-louisville" value="ky-louisville" name="trial-place"><label for="ky-louisville">Louisville</label><br>
             LOUISIANA<br>
-            <input type="checkbox" id="x-26"><label for="x-26">New Orleans</label><br>
-            <input type="checkbox" id="x-27"><label for="x-27">Shreveport*</label><br>
+            <input type="checkbox" id="la-new-orleans" value="la-new-orleans" name="trial-place"><label for="la-new-orleans">New Orleans</label><br>
+            <input type="checkbox" id="la-shreveport" value="la-shreveport" name="trial-place"><label for="la-shreveport">Shreveport*</label><br>
             MAINE<br>
-            <input type="checkbox" id="x-28"><label for="x-28">Portland*</label><br>
+            <input type="checkbox" id="me-portland" value="me-portland" name="trial-place"><label for="me-portland">Portland*</label><br>
             MARYLAND<br>
-            <input type="checkbox" id="x-29"><label for="x-29">Baltimore*</label><br>
+            <input type="checkbox" id="md-baltimore" value="md-baltimore" name="trial-place"><label for="md-baltimore">Baltimore*</label><br>
             MASSACHUSETTS<br>
-            <input type="checkbox" id="x-30"><label for="x-30">Boston</label><br>
+            <input type="checkbox" id="ma-boston" value="ma-boston" name="trial-place"><label for="ma-boston">Boston</label><br>
             MICHIGAN<br>
-            <input type="checkbox" id="x-31"><label for="x-31">Detroit</label><br>
+            <input type="checkbox" id="mi-detroit" value="mi-detroit" name="trial-place"><label for="mi-detroit">Detroit</label><br>
             MINNESOTA<br>
-            <input type="checkbox" id="x-32"><label for="x-32">St. Paul</label><br>
+            <input type="checkbox" id="md-saint-paul" value="md-saint-paul" name="trial-place"><label for="md-saint-paul">St. Paul</label><br>
             MISSISSIPPI<br>
-            <input type="checkbox" id="x-33"><label for="x-33">Jacksonville</label><br>
+            <input type="checkbox" id="ms-jacksonville" value="ms-jacksonville" name="trial-place"><label for="ms-jacksonville">Jacksonville</label><br>
             MISSOURI<br>
-            <input type="checkbox" id="x-34"><label for="x-34">Kansas City</label><br>
-            <input type="checkbox" id="x-35"><label for="x-35">St. Louis</label><br>
+            <input type="checkbox" id="mo-kansas-city" value="mo-kansas-city" name="trial-place"><label for="mo-kansas-city">Kansas City</label><br>
+            <input type="checkbox" id="mo-saint-louis" value="mo-saint-louis" name="trial-place"><label for="mo-saint-louis">St. Louis</label><br>
             MONTANA<br>
-            <input type="checkbox" id="x-36"><label for="x-36">Billings*</label><br>
-            <input type="checkbox" id="x-37"><label for="x-37">Helena</label><br>
+            <input type="checkbox" id="mt-billings" value="mt-billings" name="trial-place"><label for="mt-billings">Billings*</label><br>
+            <input type="checkbox" id="mt-helena" value="mt-helena" name="trial-place"><label for="mt-helena">Helena</label><br>
             NEBRASKA<br>
-            <input type="checkbox" id="x-38"><label for="x-38">Omaha</label><br>
+            <input type="checkbox" id="ne-omaha" value="ne-omaha" name="trial-place"><label for="ne-omaha">Omaha</label><br>
             NEVADA<br>
-            <input type="checkbox" id="x-39"><label for="x-39">Las Vegas</label><br>
-            <input type="checkbox" id="x-40"><label for="x-40">Reno</label><br>
+            <input type="checkbox" id="nv-las-vegas" value="nv-las-vegas" name="trial-place"><label for="nv-las-vegas">Las Vegas</label><br>
+            <input type="checkbox" id="nv-reno" value="nv-reno" name="trial-place"><label for="nv-reno">Reno</label><br>
             NEW MEXICO<br>
-            <input type="checkbox" id="x-41"><label for="x-41">Albuquerque</label><br>
+            <input type="checkbox" id="nm-albuquerque" value="nm-albuquerque" name="trial-place"><label for="nm-albuquerque">Albuquerque</label><br>
             NEW YORK<br>
-            <input type="checkbox" id="x-42"><label for="x-42">Albany*</label><br>
-            <input type="checkbox" id="x-43"><label for="x-43">Buffalo</label><br>
-            <input type="checkbox" id="x-44"><label for="x-44">New York City</label><br>
-            <input type="checkbox" id="x-45"><label for="x-45">Syracuse*</label><br>
+            <input type="checkbox" id="ny-albany" value="ny-albany" name="trial-place"><label for="ny-albany">Albany*</label><br>
+            <input type="checkbox" id="ny-buffalo" value="ny-buffalo" name="trial-place"><label for="ny-buffalo">Buffalo</label><br>
+            <input type="checkbox" id="ny-new-york-city" value="ny-new-york-city" name="trial-place"><label for="ny-new-york-city">New York City</label><br>
+            <input type="checkbox" id="ny-syracuse" value="ny-syracuse" name="trial-place"><label for="ny-syracuse">Syracuse*</label><br>
             NORTH CAROLINA<br>
-            <input type="checkbox" id="x-46"><label for="x-46">Winston-Salem</label><br>
+            <input type="checkbox" id="nc-winston-salem" value="nc-winston-salem" name="trial-place"><label for="nc-winston-salem">Winston-Salem</label><br>
             NORTH DAKOTA<br>
-            <input type="checkbox" id="x-47"><label for="x-47">Bismarck</label><br>
+            <input type="checkbox" id="nd-bismarck" value="nd-bismarck" name="trial-place"><label for="nd-bismarck">Bismarck</label><br>
             OHIO<br>
-            <input type="checkbox" id="x-48"><label for="x-48">Cincinnati</label><br>
-            <input type="checkbox" id="x-49"><label for="x-49">Cleveland</label><br>
-            <input type="checkbox" id="x-50"><label for="x-50">Columbus</label><br>
+            <input type="checkbox" id="oh-cincinnati" value="oh-cincinnati" name="trial-place"><label for="oh-cincinnati">Cincinnati</label><br>
+            <input type="checkbox" id="oh-cleveland" value="oh-cleveland" name="trial-place"><label for="oh-cleveland">Cleveland</label><br>
+            <input type="checkbox" id="oh-columbus" value="oh-columbus" name="trial-place"><label for="oh-columbus">Columbus</label><br>
             OKLAHOMA<br>
-            <input type="checkbox" id="x-51"><label for="x-51">Oklahoma City</label><br>
+            <input type="checkbox" id="ok-oklahoma-city" value="ok-oklahoma-city" name="trial-place"><label for="ok-oklahoma-city">Oklahoma City</label><br>
             OREGON<br>
-            <input type="checkbox" id="x-52"><label for="x-52">Portland</label><br>
+            <input type="checkbox" id="or-portland" value="or-portland" name="trial-place"><label for="or-portland">Portland</label><br>
             PENNSYLVANIA<br>
-            <input type="checkbox" id="x-53"><label for="x-53">Philadelphia</label><br>
-            <input type="checkbox" id="x-54"><label for="x-54">Pittsburgh</label><br>
+            <input type="checkbox" id="pa-philadelphia" value="pa-philadelphia" name="trial-place"><label for="pa-philadelphia">Philadelphia</label><br>
+            <input type="checkbox" id="pa-pittsburgh" value="pa-pittsburgh" name="trial-place"><label for="pa-pittsburgh">Pittsburgh</label><br>
             SOUTH CAROLINA<br>
-            <input type="checkbox" id="x-55"><label for="x-55">Columbia</label><br>
+            <input type="checkbox" id="sc-columbia" value="sc-columbia" name="trial-place"><label for="sc-columbia">Columbia</label><br>
             SOUTH DAKOTA<br>
-            <input type="checkbox" id="x-56"><label for="x-56">Aberdeen</label><br>
+            <input type="checkbox" id="sd-aberdeen" value="sd-aberdeen" name="trial-place"><label for="sd-aberdeen">Aberdeen</label><br>
             TENNESSEE<br>
-            <input type="checkbox" id="x-57"><label for="x-57">Knoxville</label><br>
-            <input type="checkbox" id="x-58"><label for="x-58">Memphis</label><br>
-            <input type="checkbox" id="x-59"><label for="x-59">Nashville</label><br>
+            <input type="checkbox" id="tn-knoxville" value="tn-knoxville" name="trial-place"><label for="tn-knoxville">Knoxville</label><br>
+            <input type="checkbox" id="tn-memphis" value="tn-memphis" name="trial-place"><label for="tn-memphis">Memphis</label><br>
+            <input type="checkbox" id="tn-nashville" value="tn-nashville" name="trial-place"><label for="tn-nashville">Nashville</label><br>
             TEXAS<br>
-            <input type="checkbox" id="x-60"><label for="x-60">Dallas</label><br>
-            <input type="checkbox" id="x-61"><label for="x-61">El Paso</label><br>
-            <input type="checkbox" id="x-62"><label for="x-62">Houston</label><br>
-            <input type="checkbox" id="x-63"><label for="x-63">Lubbock</label><br>
-            <input type="checkbox" id="x-64"><label for="x-64">San Antonio</label><br>
+            <input type="checkbox" id="tx-dallas" value="tx-dallas" name="trial-place"><label for="tx-dallas">Dallas</label><br>
+            <input type="checkbox" id="tx-el-paso" value="tx-el-paso" name="trial-place"><label for="tx-el-paso">El Paso</label><br>
+            <input type="checkbox" id="tx-houston" value="tx-houston" name="trial-place"><label for="tx-houston">Houston</label><br>
+            <input type="checkbox" id="tx-lubbock" value="tx-lubbock" name="trial-place"><label for="tx-lubbock">Lubbock</label><br>
+            <input type="checkbox" id="tx-san-antonio" value="tx-san-antonio" name="trial-place"><label for="tx-san-antonio">San Antonio</label><br>
             UTAH<br>
-            <input type="checkbox" id="x-65"><label for="x-65">Salt Lake City</label><br>
+            <input type="checkbox" id="ut-salt-lake-city" value="ut-salt-lake-city" name="trial-place"><label for="ut-salt-lake-city">Salt Lake City</label><br>
             VERMONT<br>
-            <input type="checkbox" id="x-66"><label for="x-66">Burlington*</label><br>
+            <input type="checkbox" id="vt-burlington" value="vt-burlington" name="trial-place"><label for="vt-burlington">Burlington*</label><br>
             VIRGINIA<br>
-            <input type="checkbox" id="x-67"><label for="x-67">Richmond</label><br>
-            <input type="checkbox" id="x-68"><label for="x-68">Roanoke*</label><br>
+            <input type="checkbox" id="va-richmond" value="va-richmond" name="trial-place"><label for="va-richmond">Richmond</label><br>
+            <input type="checkbox" id="va-roanoke" value="va-roanoke" name="trial-place"><label for="va-roanoke">Roanoke*</label><br>
             WASHINGTON<br>
-            <input type="checkbox" id="x-69"><label for="x-69">Seattle</label><br>
-            <input type="checkbox" id="x-70"><label for="x-70">Spokane</label><br>
+            <input type="checkbox" id="wa-seattle" value="wa-seattle" name="trial-place"><label for="wa-seattle">Seattle</label><br>
+            <input type="checkbox" id="wa-spokane" value="wa-spokane" name="trial-place"><label for="wa-spokane">Spokane</label><br>
             WEST VIRGINIA<br>
-            <input type="checkbox" id="x-71"><label for="x-71">Charleston</label><br>
+            <input type="checkbox" id="wv-charleston" value="wv-charleston" name="trial-place"><label for="wv-charleston">Charleston</label><br>
             WISCONSIN<br>
-            <input type="checkbox" id="x-72"><label for="x-72">Milwaukee</label><br>
+            <input type="checkbox" id="wi-milwaukee" value="wi-milwaukee" name="trial-place"><label for="wi-milwaukee">Milwaukee</label><br>
             WYOMING<br>
-            <input type="checkbox" id="x-73"><label for="x-73">Cheyenne*</label></p>
+            <input type="checkbox" id="wy-cheyenne" value="wy-cheyenne" name="trial-place"><label for="wy-cheyenne">Cheyenne*</label></p>
             </div>
 
             <p><input type="text"><br>
             Signature of Petitioner(s) or Counsel</p>
             
-            <p><input type="text"><br>
+            <p><input type="date"><br>
             Date</p>
 
             <input type="submit" value="Submit">
