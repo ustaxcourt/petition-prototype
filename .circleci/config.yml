@@ -18,11 +18,11 @@ jobs:
           name: Install html5validator
           command: pip install html5validator
       - run:
-          name: Validate html
-          command: ~/.local/bin/html5validator --root . --also-check-css
-      - run:
           name: Install npm dependencies
           command: npm install
+      - run:
+          name: Validate html
+          command: ~/.local/bin/html5validator --root . --blacklist node_modules
       - run:
           name: Compile SCSS
           command: sass assets/scss/* assets/css/compiled.css
