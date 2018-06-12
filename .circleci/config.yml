@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  test-3.6:
+  build:
     docker:
       - image: circleci/openjdk:8-jdk-node-browsers
     steps:
@@ -30,4 +30,4 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - test-3.6
+      - build
