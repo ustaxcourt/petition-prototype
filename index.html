@@ -109,8 +109,8 @@
 
             <fieldset>
                 <legend>4. SELECT ONE OF THE FOLLOWING:</legend>
-                <input id="small-tax" name="case-procedures" value="small-tax" type="radio" title="Small tax case procudures"> If you want your case conducted under small tax case procedures<br>
-                <input id="regular-tax" name="case-procedures" value="regular-tax" type="radio" title="Regular tax case procudures"> If you want your case conducted under regular tax case procedures
+                <input id="small-tax" name="case-procedures" value="small-tax" type="radio" title="Small tax case procudures"> <label for="small-tax">If you want your case conducted under small tax case procedures</label><br>
+                <input id="regular-tax" name="case-procedures" value="regular-tax" type="radio" title="Regular tax case procudures"> <label for="regular-tax">If you want your case conducted under regular tax case procedures</label>
             </fieldset>
             
             <p>NOTE: A decision in a “small tax case” cannot be appealed to a Court of Appeals by the taxpayer or the IRS. If you do not check either box, the Court will file your case as a regular tax case.</p>
@@ -142,46 +142,80 @@
             <p>PRIVACY NOTICE: Form 4 (Statement of Taxpayer Identification Number) will not be part of the Court’s public files. All other documents filed with the Court, including this Petition and any IRS Notice that you enclose with this Petition, will become part of the Court’s public files. To protect your privacy, you are strongly encouraged to omit or remove from this Petition, from any enclosed IRS Notice, and from any other document (other than Form 4) your taxpayer identification number (e.g., your Social Security number) and certain other confidential information as specified in the Tax Court’s “Notice Regarding Privacy and Public Access to Case Files”, available at <a href="https://www.ustaxcourt.gov/">www.ustaxcourt.gov</a>.</p>
 
             SIGNATURE OF PETITIONER
-            DATE <input type="date">
+            <label for="petitioner-signature-date">DATE</label>
+            <input type="date" id="petitioner-signature-date">
             
-            (AREA CODE) TELEPHONE NO. <input type="text">
+            <label for="petitioner-telephone">(AREA CODE) TELEPHONE NO.</label>
+            <input type="text" maxlength="12" id="petitioner-telephone">
             
-            MAILING ADDRESS <input type="text">
-            CITY <input type="text">
-            STATE <input type="text">
-            ZIP CODE <input type="text">
-            
-            State of legal residence (if different from the mailing address): <input type="text">
+            <label for="petitioner-address-street">MAILING ADDRESS</label>
+            <input type="text" id="petitioner-address-street">
 
-            E-mail address (if any): <input type="text">
+            <label for="petitioner-address-city">CITY</label>
+            <input type="text" id="petitioner-address-city">
+            
+            <label for="petitioner-address-state">STATE</label>
+            <input type="text" maxlength="2" id="petitioner-address-state">
+
+            <label for="petitioner-address-zip">ZIP CODE</label>
+            <input type="text" maxlength="5" id="petitioner-address-zip">
+            
+            <label for="petitioner-state-residence">State of legal residence (if different from the mailing address):</label> <input type="text" id="petitioner-state-residence">
+
+            <label for="petitioner-email">E-mail address (if any):</label>
+            <input type="text" id="petitioner-email">
             
             SIGNATURE OF ADDITIONAL PETITIONER (e.g., SPOUSE)
-            DATE <input type="date">
+            <label for="additional-petitioner-signature-date">DATE</label>
+            <input type="date" id="additional-petitioner-signature-date">
             
-            (AREA CODE) TELEPHONE NO. <input type="text">
+            <label for="additional-petitioner-telephone">(AREA CODE) TELEPHONE NO.</label>
+            <input type="text" maxlength="12" id="additional-petitioner-telephone">
             
-            MAILING ADDRESS <input type="text">
-            CITY <input type="text">
-            STATE <input type="text">
-            ZIP CODE <input type="text">
-            
-            State of legal residence (if different from the mailing address): <input type="text">
+            <label for="additional-petitioner-address-street">MAILING ADDRESS</label>
+            <input type="text" id="additional-petitioner-address-street">
 
-            E-mail address (if any): <input type="email">
+            <label for="additional-petitioner-address-city">CITY</label>
+            <input type="text" id="additional-petitioner-address-city">
             
-            SIGNATURE OF COUNSEL, IF RETAINED BY PETITIONER(S) <input type="text">
-            NAME OF COUNSEL <input type="text">
-            TAX COURT BAR NO. <input type="text">
+            <label for="additional-petitioner-address-state">STATE</label>
+            <input type="text" maxlength="2" id="additional-petitioner-address-state">
+
+            <label for="additional-petitioner-address-zip">ZIP CODE</label>
+            <input type="text" maxlength="5" id="additional-petitioner-address-zip">
             
-            MAILING ADDRESS <input type="text">
-            CITY <input type="text">
-            STATE <input type="text">
-            ZIP CODE <input type="text">
-            DATE <input type="date">
+            <label for="additional-petitioner-state-residence">State of legal residence (if different from the mailing address):</label>
+            <input type="text" id="additional-petitioner-state-residence">
+
+            <label for="additional-petitioner-email">E-mail address (if any):</label>
+            <input type="text" id="additional-petitioner-email">
             
-            E-MAIL ADDRESS <input type="email">
+            <label for="counsel-signature">SIGNATURE OF COUNSEL, IF RETAINED BY PETITIONER(S)</label>
+            <input type="text" id="counsel-signature">
             
-            (AREA CODE) TELEPHONE NO. <input type="text">
+            <label for="counsel-name">NAME OF COUNSEL</label>
+            <input type="text" id="counsel-name">
+            
+            <label for="counsel-bar-number">TAX COURT BAR NO.</label>
+            <input type="text" id="counsel-bar-number">
+            
+            <label for="counsel-address-street">MAILING ADDRESS</label>
+            <input type="text" id="counsel-address-street">
+
+            <label for="counsel-address-city">CITY</label>
+            <input type="text" id="counsel-address-city">
+            
+            <label for="counsel-address-state">STATE</label>
+            <input type="text" maxlength="2" id="counsel-address-state">
+
+            <label for="counsel-address-zip">ZIP CODE</label>
+            <input type="text" maxlength="5" id="counsel-address-zip">
+
+            <label for="counsel-email">E-MAIL ADDRESS</label>
+            <input type="text" id="counsel-email">
+            
+            <label for="counsel-telephone">(AREA CODE) TELEPHONE NO.</label>
+            <input type="text" maxlength="12" id="counsel-telephone">
 
             <hr>
             
@@ -208,23 +242,40 @@
 
             <h2>STATEMENT OF TAXPAYER IDENTIFICATION NUMBER</h2>
             (E.g., Social Security number(s), employer identification number(s))
+            
+            <fieldset>
 
-            <p>Name of Petitioner <input type="text"><br>
-            Petitioner’s Taxpayer Identification Number <input type="text"><br>
-            Name of Additional Petitioner <input type="text"><br>
-            Additional Petitioner’s Taxpayer Identification Number <input type="text"></p>
+                <fieldset>
+                    <label for="tin-petitioner-name">Name of Petitioner</label>
+                    <input type="text" id="tin-petitioner-name">
+                    
+                    <label for="tin-petitioner-tin">Petitioner’s Taxpayer Identification Number</label>
+                    <input type="text" maxlength="12" id="tin-petitioner-tin">
+                </fieldset>
+
+                <fieldset>
+                    <label for="tin-petitioner-name">Name of Additional Petitioner</label>
+                    <input type="text" id="tin-additional-petitioner-name">
+                    
+                    <label for="tin-petitioner-tin">Additional Petitioner’s Taxpayer Identification Number</label>
+                    <input type="text" maxlength="12" id="tin-additional-petitioner-tin">
+                </fieldset>
+
+            </fieldset>
 
             <p>If either petitioner is seeking relief from joint and several liability on a joint return pursuant to Section 6015, I.R.C. 1986, and Rules 320 through 325, name of the other individual with whom petitioner filed a joint return:</p>
             <input type="text">
 
             <p>Taxpayer Identification Number of the other individual, if available:</p>
-            <input type="text">
+            <input type="text" maxlength="12">
 
-            <p>SIGNATURE OF PETITIONER OR COUNSEL
-            DATE <input type="date"></p>
+            SIGNATURE OF PETITIONER OR COUNSEL
+            <label for="petitioner-signature-date">DATE</label>
+            <input type="date" id="petitioner-signature-date">
 
-            <p>SIGNATURE OF ADDITIONAL PETITIONER
-            DATE <input type="date"></p>
+            SIGNATURE OF ADDITIONAL PETITIONER
+            <label for="additional-petitioner-signature-date">DATE</label>
+            <input type="date" id="additional-petitioner-signature-date">
 
             <hr>
             
@@ -253,7 +304,7 @@
 
             <p><b>PLACE AN “X” IN ONLY ONE BOX TO REQUEST THE PLACE OF TRIAL. IF PETITIONER(S) ELECTED TO HAVE THE CASE CONDUCTED AS A SMALL TAX CASE, REQUEST ANY CITY LISTED BELOW; OTHERWISE, REQUEST ANY CITY NOT MARKED WITH AN ASTERISK (*).</b></p>
             
-            <div id="trial-place">
+            <fieldset id="trial-place">
             <p>ALABAMA<br>
             <input type="checkbox" id="al-birmingham" value="al-birmingham" name="trial-place"><label for="al-birmingham">Birmingham</label><br>
             <input type="checkbox" id="al-mobile" value="al-mobile" name="trial-place"><label for="al-mobile">Mobile</label><br>
@@ -375,7 +426,7 @@
             <input type="checkbox" id="wi-milwaukee" value="wi-milwaukee" name="trial-place"><label for="wi-milwaukee">Milwaukee</label><br>
             WYOMING<br>
             <input type="checkbox" id="wy-cheyenne" value="wy-cheyenne" name="trial-place"><label for="wy-cheyenne">Cheyenne*</label></p>
-            </div>
+            </fieldset>
 
             <p><input type="text"><br>
             Signature of Petitioner(s) or Counsel</p>
