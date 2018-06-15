@@ -1,26 +1,32 @@
 version: "3.0"
-
 services:
-            
+    php:
+        build:
+            context: .
+            dockerfile: Dockerfile-PHP
+        expose:
+            - 9000
+        volumes:
+            - ".:/var/www/html"
+            - compiled-css:/var/www/html/assets/css
+            - node-modules:/var/www/html/node_modules
+        networks:
+            - server
+
     nginx:
         build: ./nginx/
         ports:
             - 8000:80
         volumes:
-            - "${PROJECT_ROOT}:/var/www/html:ro"
+            - ".:/var/www/html:ro"
         networks:
             - server
         depends_on:
             - php
 
-    php:
-        build: ./php/
-        expose:
-            - 9000
-        volumes:
-            - "${PROJECT_ROOT}:/var/www/html"
-        networks:
-            - server
+volumes:
+    compiled-css:
+    node-modules:
 
 networks:
     server:
