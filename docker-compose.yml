@@ -7,9 +7,7 @@ services:
         expose:
             - 9000
         volumes:
-            - ".:/var/www/html"
-            - compiled-css:/var/www/html/assets/css
-            - node-modules:/var/www/html/node_modules
+            - .:/var/www/html:rw
         networks:
             - server
 
@@ -18,15 +16,11 @@ services:
         ports:
             - 8000:80
         volumes:
-            - ".:/var/www/html:ro"
+            - .:/var/www/html:rw
         networks:
             - server
         depends_on:
             - php
-
-volumes:
-    compiled-css:
-    node-modules:
 
 networks:
     server:
