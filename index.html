@@ -53,7 +53,7 @@
     <div class="usa-width-three-fourths usa-layout-docs-main_content">
         <h1>Petition</h1>
 
-        <form>
+        <form method="post" action="handler.php">
             
             <fieldset>
                 <legend>Petitioners</legend>
@@ -79,19 +79,19 @@
             <fieldset>
                 <legend>1. Please check the appropriate box(es) to show which IRS NOTICE(s) you dispute:</legend>
                 
-                <input type="checkbox" name="notices_disputed" id="deficiency">
+                <input type="checkbox" name="notices_disputed" id="deficiency" value="deficiency">
                 <label for="deficiency">Notice of Deficiency</label>
 
-                <input type="checkbox" name="notices_disputed" id="collection">
+                <input type="checkbox" name="notices_disputed" id="collection" value="collection">
                 <label for="collection">Notice of Determination Concerning Collection Action</label>
 
-                <input type="checkbox" name="notices_disputed" id="abate">
+                <input type="checkbox" name="notices_disputed" id="abate" value="abate">
                 <label for="abate">Notice of Final Determination Not to Abate Interest*</label>
 
-                <input type="checkbox" name="notices_disputed" id="worker-classification">
+                <input type="checkbox" name="notices_disputed" id="worker-classification" value="worker-classification">
                 <label for="worker-classification">Determination of Worker Classification*</label>
 
-                <input type="checkbox" name="notices_disputed" id="joint-liability">
+                <input type="checkbox" name="notices_disputed" id="joint-liability" value="joint-liability">
                 <label for="joint-liability">Notice of Determination Concerning Your Request for Relief From Joint and Several Liability*</label>
             </fieldset>
             
@@ -99,12 +99,12 @@
 
             <fieldset>
                 <legend>2. Provide the date(s) the IRS issued the NOTICE(S) checked above and the city and State of the IRS office(s) issuing the NOTICE(S):</legend>
-                <input type="text">
+                <input type="text" name="irs-notice-details">
             </fieldset>
 
             <fieldset>
                 <legend>3. Provide the year(s) or period(s) for which the NOTICE(S) was/were issued:</legend>
-                <input type="text">
+                <input type="text" name="irs-notice-years">
             </fieldset>
 
             <fieldset>
@@ -117,12 +117,12 @@
 
             <fieldset>
                 <legend>5. Explain why you disagree with the IRS determination in this case (please list each point separately):</legend>
-                <textarea></textarea>
+                <textarea name="reason-disagree"></textarea>
             </fieldset>
 
             <fieldset>
                 <legend>6. State the facts upon which you rely (please list each point separately):</legend>
-                <textarea></textarea>
+                <textarea name="facts"></textarea>
             </fieldset>
 
             <p>You may use additional pages to explain why you disagree with the IRS determination or to state additional facts. Please do not submit tax forms, receipts, or other types of evidence with this petition.</p>
@@ -130,40 +130,41 @@
             <p>ENCLOSURES:<br>
             Please check the appropriate boxes to show that you have enclosed the following items with this petition:<br>
             
-            <input type="checkbox" id="enclosed-notices">
+            <input type="checkbox" id="enclosed-notices" name="enclosures">
             <label for="enclosed-notices">A copy of any NOTICE(S) the IRS issued to you</label>
             
-            <input type="checkbox" id="enclosed-tin">
+            <input type="checkbox" id="enclosed-tin" name="enclosures">
             <label for="enclosed-tin">Statement of Taxpayer Identification Number (Form 4) (See PRIVACY NOTICE below)</label>
             
-            <input type="checkbox" id="enclosed-place">
+            <input type="checkbox" id="enclosed-place" name="enclosures">
             <label for="enclosed-place">The Request for Place of Trial (Form 5)</label>
 
             <p>PRIVACY NOTICE: Form 4 (Statement of Taxpayer Identification Number) will not be part of the Court’s public files. All other documents filed with the Court, including this Petition and any IRS Notice that you enclose with this Petition, will become part of the Court’s public files. To protect your privacy, you are strongly encouraged to omit or remove from this Petition, from any enclosed IRS Notice, and from any other document (other than Form 4) your taxpayer identification number (e.g., your Social Security number) and certain other confidential information as specified in the Tax Court’s “Notice Regarding Privacy and Public Access to Case Files”, available at <a href="https://www.ustaxcourt.gov/">www.ustaxcourt.gov</a>.</p>
 
             SIGNATURE OF PETITIONER
             <label for="petitioner-signature-date">DATE</label>
-            <input type="date" id="petitioner-signature-date">
+            <input type="date" id="petitioner-signature-date" name="petitioner-signature-date">
             
             <label for="petitioner-telephone">(AREA CODE) TELEPHONE NO.</label>
-            <input type="text" maxlength="12" id="petitioner-telephone">
+            <input type="text" maxlength="12" id="petitioner-telephone" name="petitioner-telephone">
             
             <label for="petitioner-address-street">MAILING ADDRESS</label>
-            <input type="text" id="petitioner-address-street">
+            <input type="text" id="petitioner-address-street" name="petitioner-address-street">
 
             <label for="petitioner-address-city">CITY</label>
-            <input type="text" id="petitioner-address-city">
+            <input type="text" id="petitioner-address-city" name="petitioner-address-city">
             
             <label for="petitioner-address-state">STATE</label>
-            <input type="text" maxlength="2" id="petitioner-address-state">
+            <input type="text" maxlength="2" id="petitioner-address-state" name="petitioner-address-state">
 
             <label for="petitioner-address-zip">ZIP CODE</label>
-            <input type="text" maxlength="5" id="petitioner-address-zip">
+            <input type="text" maxlength="5" id="petitioner-address-zip" name="petitioner-address-zip">
             
-            <label for="petitioner-state-residence">State of legal residence (if different from the mailing address):</label> <input type="text" id="petitioner-state-residence">
+            <label for="petitioner-state-residence">State of legal residence (if different from the mailing address):</label>
+            <input type="text" id="petitioner-state-residence" name="petitioner-state-residence">
 
             <label for="petitioner-email">E-mail address (if any):</label>
-            <input type="text" id="petitioner-email">
+            <input type="text" id="petitioner-email" name="petitioner-email">
             
             SIGNATURE OF ADDITIONAL PETITIONER (e.g., SPOUSE)
             <label for="additional-petitioner-signature-date">DATE</label>
