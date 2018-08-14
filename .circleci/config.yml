@@ -9,7 +9,7 @@ jobs:
           name: Install pip and ruby-dev
           command: sudo apt-get install python-pip ruby-dev
       - run:
-          name: Install sass
+          name: Install SASS
           command: sudo gem install sass
       - run:
           name: Update npm
@@ -21,7 +21,7 @@ jobs:
           name: Install npm dependencies
           command: npm install
       - run:
-          name: Validate html
+          name: Validate HTML
           command: ~/.local/bin/html5validator --root . --blacklist node_modules 
       - run:
           name: Compile SCSS
