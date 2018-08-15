@@ -36,11 +36,8 @@ jobs:
     working_directory: ~/prototype
     steps:
       - run:
-          name: List directory contents
-          command: pwd; ls
-      - run:
           name: Deploy to S3
-          command: aws s3 sync . s3://prototype.ustaxcourt.gov --delete
+          command: aws s3 sync ~/prototype s3://prototype.ustaxcourt.gov --delete
 workflows:
   version: 2
   build-and-deploy:
