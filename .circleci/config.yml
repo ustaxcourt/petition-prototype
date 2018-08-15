@@ -33,6 +33,7 @@ jobs:
   deploy:
     machine:
         enabled: true
+    working_directory: ~/prototype
     steps:
       - run:
           name: List directory contents
