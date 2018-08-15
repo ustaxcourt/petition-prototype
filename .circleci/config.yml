@@ -35,6 +35,8 @@ jobs:
           command: pwd; ls
       - persist_to_workspace:
           root: ~/prototype/
+          paths:
+            - .
     
   deploy:
     machine:
