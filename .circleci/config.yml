@@ -1,10 +1,16 @@
+# Define a YAML variable (&defaults) that we can use to define config options
+# that are common to all jobs.
+defaults: &defaults
+  working_directory: ~
+
 version: 2
 jobs:
   build:
+    <<: *defaults
     docker:
       - image: circleci/openjdk:8-jdk-node-browsers
     steps:
-      - run: mkdir -p ~/prototype && cd ~/prototype
+      - run: mkdir -p prototype && cd prototype
       - checkout
       - run:
           name: Update apt-get
@@ -36,17 +42,18 @@ jobs:
             - .
     
   deploy:
+    <<: *defaults
     machine:
         enabled: true
     steps:
       - attach_workspace:
-          at: ~/prototype/
+          at: prototype/
       - run:
           name: Get oriented
           command: pwd; ls
       - run:
           name: Deploy to S3
-          command: aws s3 sync ~/prototype s3://prototype.ustaxcourt.gov --delete
+          command: aws s3 sync prototype/ s3://prototype.ustaxcourt.gov --delete
 workflows:
   version: 2
   build-and-deploy:
