@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: circleci/openjdk:8-jdk-node-browsers
     steps:
-      - run: mkdir -p /tmp/rototype && cd /tmp/prototype
+      - run: mkdir -p /tmp/prototype && cd /tmp/prototype
       - checkout
       - run:
           name: Update apt-get
