@@ -6,6 +6,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Update apt-get
+          command: sudo apt-get update
+      - run:
           name: Install pip and ruby-dev
           command: sudo apt-get install python-pip ruby-dev
       - run:
