@@ -47,7 +47,7 @@ jobs:
           at: ~/project
       - run:
           name: Get oriented
-          command: cd prototype; ls -l
+          command: ls -l
       - run:
           name: Deploy to S3
           command: aws s3 sync . s3://prototype.ustaxcourt.gov
