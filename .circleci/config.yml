@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: circleci/openjdk:8-jdk-node-browsers
     steps:
-      - run: mkdir -p /tmp/prototype && cd /tmp/prototype
+      - run: mkdir -p prototype && cd prototype
       - checkout
       - run:
           name: Update apt-get
@@ -30,8 +30,9 @@ jobs:
       - run:
           name: Compile SCSS
           command: sass assets/scss/* assets/css/compiled.css
+      - run: cd ..
       - persist_to_workspace:
-          root: /tmp
+          root: .
           paths:
             - prototype
     
@@ -40,13 +41,13 @@ jobs:
         enabled: true
     steps:
       - attach_workspace:
-          at: /tmp/
+          at: .
       - run:
           name: Get oriented
-          command: cd /tmp/; pwd; ls -l; cd prototype; ls -l
+          command: cd prototype; ls -l
       - run:
           name: Deploy to S3
-          command: aws s3 sync /tmp/prototype/ s3://prototype.ustaxcourt.gov --delete
+          command: aws s3 sync . s3://prototype.ustaxcourt.gov --delete
 workflows:
   version: 2
   build-and-deploy:
