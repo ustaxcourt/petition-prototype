@@ -30,28 +30,9 @@ jobs:
       - run:
           name: Compile SCSS
           command: sass assets/scss/* assets/css/compiled.css
-      - persist_to_workspace:
-          root: /tmp
-          paths:
-            - prototype
-    
-  deploy:
-    machine:
-        enabled: true
-    steps:
-      - attach_workspace:
-          at: prototype
       - run:
-          name: Get oriented
+          name: Check that the directory looks good (debug output)
           command: pwd; ls
       - run:
           name: Deploy to S3
           command: aws s3 sync /tmp/prototype/ s3://prototype.ustaxcourt.gov --delete
-workflows:
-  version: 2
-  build-and-deploy:
-    jobs:
-      - build
-      - deploy:
-          requires:
-            - build
