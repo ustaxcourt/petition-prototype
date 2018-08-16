@@ -31,7 +31,7 @@ jobs:
           name: Compile SCSS
           command: sass assets/scss/* assets/css/compiled.css
       - persist_to_workspace:
-          root: tmp
+          root: /tmp
           paths:
             - prototype
     
