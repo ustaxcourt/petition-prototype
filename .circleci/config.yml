@@ -43,7 +43,7 @@ jobs:
           at: /tmp/
       - run:
           name: Get oriented
-          command: cd /tmp/; pwd; ls -l; cd protoype; ls -l
+          command: cd /tmp/; pwd; ls -l; cd prototype; ls -l
       - run:
           name: Deploy to S3
           command: aws s3 sync /tmp/prototype/ s3://prototype.ustaxcourt.gov --delete
