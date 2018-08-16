@@ -50,7 +50,7 @@ jobs:
           command: ls -l
       - run:
           name: Move into the project directory
-          command: cd ~/project; js
+          command: cd ~/project; ls
       - run:
           name: Deploy to S3
           command: aws s3 sync . s3://prototype.ustaxcourt.gov --delete
