@@ -40,10 +40,10 @@ jobs:
         enabled: true
     steps:
       - attach_workspace:
-          at: .
+          at: /tmp/
       - run:
           name: Get oriented
-          command: pwd; ls
+          command: cd /tmp/; pwd; ls; ls prototype/
       - run:
           name: Deploy to S3
           command: aws s3 sync /tmp/prototype/ s3://prototype.ustaxcourt.gov --delete
