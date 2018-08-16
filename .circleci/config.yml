@@ -49,8 +49,11 @@ jobs:
           name: Get oriented
           command: ls -l
       - run:
+          name: Move into the project directory
+          command: cd ~/project; js
+      - run:
           name: Deploy to S3
-          command: cd ~/project/ && aws s3 sync . s3://prototype.ustaxcourt.gov --delete
+          command: aws s3 sync . s3://prototype.ustaxcourt.gov --delete
 workflows:
   version: 2
   build-and-deploy:
