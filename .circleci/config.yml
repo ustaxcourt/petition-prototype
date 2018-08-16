@@ -34,7 +34,7 @@ jobs:
           command: sass assets/scss/* assets/css/compiled.css
       - run: cd ..
       - persist_to_workspace:
-          root: ~
+          root: ~/
           paths:
             - project
     
