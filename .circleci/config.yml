@@ -4,8 +4,10 @@ jobs:
     docker:
       - image: circleci/openjdk:8-jdk-node-browsers
     steps:
-      - run: mkdir -p prototype && cd prototype
       - checkout
+      - run: pwd
+      - attach_workspace:
+          at: ~/project
       - run:
           name: Update apt-get
           command: sudo apt-get update
@@ -32,16 +34,17 @@ jobs:
           command: sass assets/scss/* assets/css/compiled.css
       - run: cd ..
       - persist_to_workspace:
-          root: .
+          root: ~
           paths:
-            - prototype
+            - project
     
   deploy:
     machine:
         enabled: true
+    working_directory: ~/project
     steps:
       - attach_workspace:
-          at: .
+          at: ~/project
       - run:
           name: Get oriented
           command: cd prototype; ls -l
