@@ -7,8 +7,11 @@ jobs:
       - run: mkdir -p /tmp/prototype && cd /tmp/prototype
       - checkout
       - run:
-          name: Install apt-get packages
-          command: sudo apt-get update && sudo apt-get install python-pip ruby-dev awscli
+          name: Update apt-get
+          command: sudo apt-get update
+      - run:
+          name: Install pip and ruby-dev
+          command: sudo apt-get install python-pip ruby-dev
       - run:
           name: Install SASS
           command: sudo gem install sass
@@ -27,9 +30,28 @@ jobs:
       - run:
           name: Compile SCSS
           command: sass assets/scss/* assets/css/compiled.css
+      - persist_to_workspace:
+          root: tmp
+          paths:
+            - prototype
+    
+  deploy:
+    machine:
+        enabled: true
+    steps:
+      - attach_workspace:
+          at: .
       - run:
-          name: Check that we're in the right directory
+          name: Get oriented
           command: pwd; ls
       - run:
           name: Deploy to S3
           command: aws s3 sync /tmp/prototype/ s3://prototype.ustaxcourt.gov --delete
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
