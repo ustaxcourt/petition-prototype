@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Petition Prototype</title>
     <link rel="stylesheet" href="assets/uswds-1.6.4/css/uswds.css">
+</head>
 <body>
 
 <a class="usa-skipnav" href="#main-content">Skip to main content</a>
@@ -61,9 +62,9 @@
                 <legend>Petitioners</legend>
                 <fieldset>
                     <legend>First Petitioner</legend>
-                    <label for="name_1_first">First</label><input type="text" name="name_1_first" id="name_1_first">
+                    <label for="name_1_first">First</label><input type="text" name="name_1_first" id="name_1_first" required>
                     <label for="name_1_middle">Middle</label><input type="text" name="name_1_middle" id="name_1_middle">
-                    <label for="name_1_last">Last</label><input type="text" name="name_1_last" id="name_1_last">
+                    <label for="name_1_last">Last</label><input type="text" name="name_1_last" id="name_1_last" required>
                 </fieldset>
                 <fieldset>
                     <legend>Second Petitioner</legend>
@@ -110,81 +111,76 @@
             </fieldset>
 
             <fieldset>
-                <legend>4. SELECT ONE OF THE FOLLOWING:</legend>
-                <input id="small-tax" name="case-procedures" value="small-tax" type="radio" title="Small tax case procudures"> <label for="small-tax">If you want your case conducted under small tax case procedures</label><br>
-                <input id="regular-tax" name="case-procedures" value="regular-tax" type="radio" title="Regular tax case procudures"> <label for="regular-tax">If you want your case conducted under regular tax case procedures</label>
+                <legend>4. Which tax case procuredures do you want your case conducted under?</legend>
+                <input id="small-tax" name="case-procedures" value="small-tax" type="radio" title="Small tax case procudures"> <label for="small-tax">Small tax case procedures</label>
+                <input id="regular-tax" name="case-procedures" value="regular-tax" type="radio" title="Regular tax case procudures" checked="checked"> <label for="regular-tax">Regular tax case procedures</label>
             </fieldset>
             
             <p>NOTE: A decision in a “small tax case” cannot be appealed to a Court of Appeals by the taxpayer or the IRS. If you do not check either box, the Court will file your case as a regular tax case.</p>
 
             <fieldset>
-                <legend>5. Explain why you disagree with the IRS determination in this case (please list each point separately):</legend>
+                <legend>5. Why do you disagree with the IRS determination in this case? Please list each point separately.</legend>
                 <textarea name="reason-disagree"></textarea>
             </fieldset>
 
             <fieldset>
-                <legend>6. State the facts upon which you rely (please list each point separately):</legend>
+                <legend>6. What are the facts upon which you rely? Please list each point separately.</legend>
                 <textarea name="facts"></textarea>
             </fieldset>
 
             <p>You may use additional pages to explain why you disagree with the IRS determination or to state additional facts. Please do not submit tax forms, receipts, or other types of evidence with this petition.</p>
 
             <p>ENCLOSURES:<br>
-            Please check the appropriate boxes to show that you have enclosed the following items with this petition:<br>
+            Which items have you attached to this petition?<br>
             
             <input type="checkbox" id="enclosed-notices" name="enclosures">
-            <label for="enclosed-notices">A copy of any NOTICE(S) the IRS issued to you</label>
-            
-            <input type="checkbox" id="enclosed-tin" name="enclosures">
-            <label for="enclosed-tin">Statement of Taxpayer Identification Number (Form 4) (See PRIVACY NOTICE below)</label>
-            
-            <input type="checkbox" id="enclosed-place" name="enclosures">
-            <label for="enclosed-place">The Request for Place of Trial (Form 5)</label>
+            <label for="enclosed-notices">A copy of any notices that the IRS issued to you</label>
 
-            <p>PRIVACY NOTICE: Form 4 (Statement of Taxpayer Identification Number) will not be part of the Court’s public files. All other documents filed with the Court, including this Petition and any IRS Notice that you enclose with this Petition, will become part of the Court’s public files. To protect your privacy, you are strongly encouraged to omit or remove from this Petition, from any enclosed IRS Notice, and from any other document (other than Form 4) your taxpayer identification number (e.g., your Social Security number) and certain other confidential information as specified in the Tax Court’s “Notice Regarding Privacy and Public Access to Case Files”, available at <a href="https://www.ustaxcourt.gov/">www.ustaxcourt.gov</a>.</p>
+            <p><strong>Privacy notice:</strong> Form 4 (Statement of Taxpayer Identification Number) will not be part of the Court’s public files. All other documents filed with the Court, including this Petition and any IRS Notice that you enclose with this Petition, will become part of the Court’s public files. To protect your privacy, you are strongly encouraged to omit or remove from this Petition, from any enclosed IRS Notice, and from any other document (other than Form 4) your taxpayer identification number (e.g., your Social Security number) and certain other confidential information as specified in the Tax Court’s “Notice Regarding Privacy and Public Access to Case Files”, available at <a href="https://www.ustaxcourt.gov/">www.ustaxcourt.gov</a>.</p>
 
             SIGNATURE OF PETITIONER
-            <label for="petitioner-signature-date">DATE</label>
+            <label for="petitioner-signature-date">Date</label>
             <input type="date" id="petitioner-signature-date" name="petitioner-signature-date">
             
-            <label for="petitioner-telephone">(AREA CODE) TELEPHONE NO.</label>
+            <label for="petitioner-telephone">Telephone Number</label>
             <input type="text" maxlength="12" id="petitioner-telephone" name="petitioner-telephone">
             
-            <label for="petitioner-address-street">MAILING ADDRESS</label>
+            <label for="petitioner-address-street">Mailing Address</label>
             <input type="text" id="petitioner-address-street" name="petitioner-address-street">
 
-            <label for="petitioner-address-city">CITY</label>
+            <label for="petitioner-address-city">City</label>
             <input type="text" id="petitioner-address-city" name="petitioner-address-city">
             
-            <label for="petitioner-address-state">STATE</label>
+            <label for="petitioner-address-state">State</label>
             <input type="text" maxlength="2" id="petitioner-address-state" name="petitioner-address-state">
 
-            <label for="petitioner-address-zip">ZIP CODE</label>
+            <label for="petitioner-address-zip">ZIP Code</label>
             <input type="text" maxlength="5" id="petitioner-address-zip" name="petitioner-address-zip">
             
-            <label for="petitioner-state-residence">State of legal residence (if different from the mailing address):</label>
+            <label for="petitioner-state-residence">State of legal residence (if different from the mailing address)</label>
             <input type="text" id="petitioner-state-residence" name="petitioner-state-residence">
 
-            <label for="petitioner-email">E-mail address (if any):</label>
+            <label for="petitioner-email">E-mail address (if any)</label>
             <input type="text" id="petitioner-email" name="petitioner-email">
             
-            SIGNATURE OF ADDITIONAL PETITIONER (e.g., SPOUSE)
-            <label for="additional-petitioner-signature-date">DATE</label>
+            Signature of Additional Petitioner (e.g., Spouse)
+
+            <label for="additional-petitioner-signature-date">Date</label>
             <input type="date" id="additional-petitioner-signature-date">
             
-            <label for="additional-petitioner-telephone">(AREA CODE) TELEPHONE NO.</label>
+            <label for="additional-petitioner-telephone">Telephone Number</label>
             <input type="text" maxlength="12" id="additional-petitioner-telephone">
             
-            <label for="additional-petitioner-address-street">MAILING ADDRESS</label>
+            <label for="additional-petitioner-address-street">Mailing Address</label>
             <input type="text" id="additional-petitioner-address-street">
 
-            <label for="additional-petitioner-address-city">CITY</label>
+            <label for="additional-petitioner-address-city">City</label>
             <input type="text" id="additional-petitioner-address-city">
             
-            <label for="additional-petitioner-address-state">STATE</label>
+            <label for="additional-petitioner-address-state">State</label>
             <input type="text" maxlength="2" id="additional-petitioner-address-state">
 
-            <label for="additional-petitioner-address-zip">ZIP CODE</label>
+            <label for="additional-petitioner-address-zip">ZIP Code</label>
             <input type="text" maxlength="5" id="additional-petitioner-address-zip">
             
             <label for="additional-petitioner-state-residence">State of legal residence (if different from the mailing address):</label>
