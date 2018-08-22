@@ -76,30 +76,28 @@
 
         <form method="post" action="handler.php">
             
-            <fieldset>
-                <legend>Petitioners</legend>
+            <div id="petitioners">
+                
+                <h2>Petitioners</h2>
+                
                 <fieldset>
-                    <legend>First Petitioner</legend>
+                    <h3>First Petitioner</h3>
                     <label for="name_1_first">First</label><input type="text" name="name_1_first" id="name_1_first" required>
                     <label for="name_1_middle">Middle</label><input type="text" name="name_1_middle" id="name_1_middle">
                     <label for="name_1_last">Last</label><input type="text" name="name_1_last" id="name_1_last" required>
                 </fieldset>
+
                 <fieldset>
-                    <legend>Second Petitioner</legend>
+                    <h3>Second Petitioner</h3>
                     <label for="name_2_first">First</label><input type="text" name="name_2_first" id="name_2_first">
                     <label for="name_2_middle">Middle</label><input type="text" name="name_2_middle" id="name_2_middle">
                     <label for="name_2_last">Last</label><input type="text" name="name_2_last" id="name_2_last">
                 </fieldset>
-            </fieldset>
 
-            <p>Petitioner(s)<br>
-            v.<br>
-            COMMISSIONER OF INTERNAL REVENUE,<br>
-            Respondent</p>
+            </div>
             
             <fieldset>
-                <legend>1. Please check the appropriate box(es) to show which IRS NOTICE(s) you dispute:</legend>
-                
+                <h2>1. Please check the appropriate box(es) to show which IRS notice(s) you dispute:</h2>    
                 <input type="checkbox" name="notices_disputed" id="deficiency" value="deficiency">
                 <label for="deficiency">Notice of Deficiency</label>
 
@@ -114,22 +112,23 @@
 
                 <input type="checkbox" name="notices_disputed" id="joint-liability" value="joint-liability">
                 <label for="joint-liability">Notice of Determination Concerning Your Request for Relief From Joint and Several Liability*</label>
+
             </fieldset>
             
-            <p>* Please see the Court’s Web site, www.ustaxcourt.gov, or information booklet for additional information if (1) you filed a claim for interest abatement or requested relief from joint and several liability, and the IRS has not made a determination, or (2) the petition involves a worker classification case.</p>
+            <p>* Please see <a href="https://www.ustaxcourt.gov/">the Court’s Web site</a> for additional information if (1) you filed a claim for interest abatement or requested relief from joint and several liability, and the IRS has not made a determination, or (2) the petition involves a worker classification case.</p>
 
             <fieldset>
-                <legend>2. Provide the date(s) the IRS issued the NOTICE(S) checked above and the city and State of the IRS office(s) issuing the NOTICE(S):</legend>
+                <h2>2. Provide the date(s) the IRS issued the notice(s) checked above and the city and State of the IRS office(s) issuing the notice(s):</h2>
                 <input type="text" name="irs-notice-details">
             </fieldset>
 
             <fieldset>
-                <legend>3. Provide the year(s) or period(s) for which the NOTICE(S) was/were issued:</legend>
+                <h2>3. Provide the year(s) or period(s) for which the notice(s) was/were issued:</h2>
                 <input type="text" name="irs-notice-years">
             </fieldset>
 
             <fieldset>
-                <legend>4. Which tax case procuredures do you want your case conducted under?</legend>
+                <h2>4. Which tax case procuredures do you want your case conducted under?</h2>
                 <input id="small-tax" name="case-procedures" value="small-tax" type="radio" title="Small tax case procudures"> <label for="small-tax">Small tax case procedures</label>
                 <input id="regular-tax" name="case-procedures" value="regular-tax" type="radio" title="Regular tax case procudures" checked="checked"> <label for="regular-tax">Regular tax case procedures</label>
             </fieldset>
@@ -137,12 +136,12 @@
             <p>NOTE: A decision in a “small tax case” cannot be appealed to a Court of Appeals by the taxpayer or the IRS. If you do not check either box, the Court will file your case as a regular tax case.</p>
 
             <fieldset>
-                <legend>5. Why do you disagree with the IRS determination in this case? Please list each point separately.</legend>
+                <h2>5. Why do you disagree with the IRS determination in this case? Please list each point separately.</h2>
                 <textarea name="reason-disagree"></textarea>
             </fieldset>
 
             <fieldset>
-                <legend>6. What are the facts upon which you rely? Please list each point separately.</legend>
+                <h2>6. What are the facts upon which you rely? Please list each point separately.</h2>
                 <textarea name="facts"></textarea>
             </fieldset>
 
@@ -236,34 +235,25 @@
 
             <hr>
 
-            <h2>STATEMENT OF TAXPAYER IDENTIFICATION NUMBER</h2>
-            (E.g., Social Security number(s), employer identification number(s))
+            <h2>Taxpayer Identification Number</h2>
+            
+            <p>For example,, Social Security number(s), employer identification number(s).</p>
             
             <fieldset>
-
-                <fieldset>
-                    <label for="tin-petitioner-name">Name of Petitioner</label>
-                    <input type="text" id="tin-petitioner-name">
-                    
-                    <label for="tin-petitioner-tin">Petitioner’s Taxpayer Identification Number</label>
-                    <input type="text" maxlength="12" id="tin-petitioner-tin">
-                </fieldset>
-
-                <fieldset>
-                    <label for="tin-petitioner-name">Name of Additional Petitioner</label>
-                    <input type="text" id="tin-additional-petitioner-name">
-                    
-                    <label for="tin-petitioner-tin">Additional Petitioner’s Taxpayer Identification Number</label>
-                    <input type="text" maxlength="12" id="tin-additional-petitioner-tin">
-                </fieldset>
-
+                <label for="tin-petitioner">Petitioner’s Taxpayer Identification Number</label>
+                <input type="text" size="12" maxlength="12" id="tin-petitioner">
+            </fieldset>
+                
+            <fieldset>
+                <label for="tin-petitioner-additional">Additional Petitioner’s Taxpayer Identification Number</label>
+                <input type="text" size="12" maxlength="12" id="tin-petitioner-additional">
             </fieldset>
 
             <p>If either petitioner is seeking relief from joint and several liability on a joint return pursuant to Section 6015, I.R.C. 1986, and Rules 320 through 325, name of the other individual with whom petitioner filed a joint return:</p>
-            <input type="text">
+            <input type="text" id="tin-other-petitioner">
 
             <p>Taxpayer Identification Number of the other individual, if available:</p>
-            <input type="text" maxlength="12">
+            <input type="text" size="12" maxlength="12" id="tin-other-tin">
 
             <hr>
 
@@ -444,8 +434,8 @@
             <input type="radio" id="wy-cheyenne" value="wy-cheyenne" name="trial-place"><label for="wy-cheyenne">Cheyenne*</label></p>
             </div>
 
-            <p><input type="text"><br>
-            Signature of Petitioner(s) or Counsel</p>
+            <p><input type="text" id="final-signature"><br>
+            <label for="final-signature">Signature of Petitioner(s) or Counsel</label>
             
             <input type="date" id="trial-place-signature-date">
             <label for="trial-place-signature-date">Date</label>
