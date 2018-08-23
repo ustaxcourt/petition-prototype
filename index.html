@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Petition Prototype</title>
     <link rel="stylesheet" href="assets/uswds-1.6.4/css/uswds.css">
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous"></script>
     <style>
     #trial-place {
         columns: 3 auto;
@@ -23,6 +27,31 @@
         margin-left: 4%;
     }
     </style>
+    <script>
+        $(document).ready(function() {
+
+            // Hide fields that are about the optional additional petitioner.
+            $('.additional-petitioner').hide();
+
+            // Show additional petitioner fields if there is an additional petitioner.
+            $('#name_2_last').blur(function() {
+                if ($('#name_2_last').val() != '') {
+                    $('.additional-petitioner').show();
+                }
+            });
+
+            // Hide fields that are about the optional counsel.
+            $('.counsel').hide();
+
+            // Show additional counsel fields if there is an attorney.
+            $('#counsel-name').blur(function() {
+                if ($('#counsel-name').val() != '') {
+                    $('.counsel').show();
+                }
+            });
+
+        });
+    </script>
 </head>
 <body>
 
