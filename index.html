@@ -500,15 +500,31 @@
                     <option value="AP">AP - Armed Forces Pacific</option>
                 </select>
             
-            <label for="counsel-bar-number">Tax Court Bar number</label>
-            <input type="text" id="counsel-bar-number">
+            </div>
+                
+            <label for="counsel-name">Name of counsel, if retained by petitioner(s)</label>
+            <input type="text" name="counsel-name" id="counsel-name">
             
-            <label for="counsel-address-street">Mailing address</label>
-            <input type="text" id="counsel-address-street">
+            <div class="counsel">
+                
+                <h2>Counsel’s Contact Information</h2>
 
-            <label for="counsel-address-city">City</label>
-            <input type="text" id="counsel-address-city">
-            
+                <label for="counsel-signature">Signature of counsel</label>
+                <input type="text" name="counsel-signature" id="counsel-signature">
+                
+                <label for="counsel-bar-number">Tax Court Bar number</label>
+                <input type="text" name="counsel-bar-number" id="counsel-bar-number">
+                
+                <label for="counsel-address-street">Mailing address</label>
+                <input type="text" name="counsel-address-street" id="counsel-address-street">
+
+                <div>
+
+                    <div class="usa-input-grid usa-input-grid-medium">
+                        <label for="counsel-address-city">City</label>
+                        <input type="text" id="counsel-address-city" name="counsel-address-city">
+                    </div>
+
                     <div class="usa-input-grid usa-input-grid-small">
                         <label for="counsel-address-state">State</label>
                         <select id="counsel-address-state" name="counsel-address-state">
@@ -574,16 +590,16 @@
                     </div>
                 </div>
 
-            <label for="counsel-address-zip">ZIP code</label>
-            <input type="text" maxlength="5" id="counsel-address-zip">
+                <label for="counsel-address-zip">ZIP code</label>
+                <input type="text" maxlength="5" id="counsel-address-zip">
 
-            <label for="counsel-email">E-mail address (if any)</label>
-            <input type="text" id="counsel-email">
+                <label for="counsel-email">E-mail address (if any)</label>
+                <input type="email" id="counsel-email">
+                
+                <label for="counsel-telephone">Telephone number</label>
+                <input type="text" maxlength="12" id="counsel-telephone">
             
-            <label for="counsel-telephone">Telephone number</label>
-            <input type="text" maxlength="12" id="counsel-telephone">
-
-            <hr>
+            </div>
 
             <h2>Taxpayer Identification Number</h2>
             
