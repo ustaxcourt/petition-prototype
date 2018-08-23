@@ -10,22 +10,22 @@
         integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
         crossorigin="anonymous"></script>
     <style>
-    #trial-place {
-        columns: 3 auto;
-    }
-        #trial-place label {
-            margin: 0;
+        #petitioners fieldset {
+            float: left;
+            width: 45%;
         }
-        #trial-place p {
+            #petitioners fieldset + fieldset {
+                margin-left: 9%;
+            }
+        #trial-place {
+            columns: 3;
+        }
+        .usa-form {
+            max-width: 100%;
+        }
+        #trial-place {
             font-weight: bold;
         }
-    #petitioners fieldset {
-        width: 48%;
-        float: left;
-    }
-    #petitioners fieldset:nth-of-type(2) {
-        margin-left: 4%;
-    }
     </style>
     <script>
         $(document).ready(function() {
