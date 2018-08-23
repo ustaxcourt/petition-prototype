@@ -275,7 +275,7 @@
             </div>
 
             <label for="petitioner-address-zip">ZIP Code</label>
-            <input type="text" maxlength="5" id="petitioner-address-zip" name="petitioner-address-zip">
+            <input type="text" maxlength="5" pattern="[\d]{5}(-[\d]{4})?" class="usa-input-medium" id="petitioner-address-zip" name="petitioner-address-zip">
             
             <label for="petitioner-state-residence">State of legal residence (if different from the mailing address)</label>
             <select id="petitioner-state-residence" name="petitioner-state-residence">
