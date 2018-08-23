@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ustaxcourt/petition-prototype#readme",
   "dependencies": {
-    "uswds": "*"
+    "uswds": "*",
+    "jquery": "*"
   }
 }

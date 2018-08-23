@@ -5,6 +5,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Petition Prototype</title>
     <link rel="stylesheet" href="assets/uswds-1.6.4/css/uswds.css">
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous"></script>
+    <style>
+        #petitioners fieldset {
+            float: left;
+            width: 45%;
+        }
+            #petitioners fieldset + fieldset {
+                margin-left: 9%;
+            }
+        #trial-place {
+            columns: 3;
+        }
+            #trial-place p {
+                break-inside: avoid;
+            }
+                #trial-place p label {
+                    margin-top: 0.5em;
+                }
+        .usa-form {
+            max-width: 100%;
+        }
+        #trial-place {
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+
+            // Hide fields that are about the optional additional petitioner.
+            $('.additional-petitioner').hide();
+
+            // Show additional petitioner fields if there is an additional petitioner.
+            $('#name_2_last').blur(function() {
+                if ($('#name_2_last').val() != '') {
+                    $('.additional-petitioner').show();
+                }
+            });
+
+            // Hide fields that are about the optional counsel.
+            $('.counsel').hide();
+
+            // Show additional counsel fields if there is an attorney.
+            $('#counsel-name').blur(function() {
+                if ($('#counsel-name').val() != '') {
+                    $('.counsel').show();
+                }
+            });
+
+            // Hide fields that are about the optional counsel.
+            $('.small-tax-venue').hide();
+
+            // Show small-tax-case-only venues, if this is a small-tax case.
+            $("input[name='case-procedures']").change(function() {
+                if ($('#regular-tax:checked').val() == 'regular-tax') {
+                    $('.small-tax-venue').hide();
+                }
+                else {
+                    $('.small-tax-venue').show();
+                }
+            });
+
+        });
+    </script>
 </head>
 <body>
 
@@ -45,43 +111,57 @@
 <!-- Gov banner END -->
 
 <div class="usa-overlay"></div>
+
+<img src="https://ustaxcourt.gov/images/rwb_design_108.gif" width="580" height="108" alt="Masthead graphic" />
 <main class="usa-grid usa-section usa-content usa-layout-docs" id="main-content">
-    
-    <img src="https://ustaxcourt.gov/images/rwb_design_108.gif" width="580" height="108" alt="Masthead graphic" />
 
     <aside class="usa-width-one-fourth usa-layout-docs-sidenav">
-        sidebar to come
+        <h2>Intro</h2>
+        <p>If you seek review of one of the five types of cases listed in paragraph 1 of the petition form (Form 2), you may file your petition as a “small tax case” if your dispute meets certain dollar limits (described below). “Small tax cases” are handled under simpler, less formal procedures than regular cases. However, the Tax Court’s decision in a small tax case cannot be appealed to a Court of Appeals by the IRS or by the taxpayer(s). You can choose to have your case conducted as either a small tax case or a regular case by checking the appropriate box in paragraph 4 of the petition form (Form 2). If you check neither box, the Court will file your case as a regular case.</p>
+
+        <p>Dollar Limits: Dollar limits for a small tax case vary slightly depending on the type of IRS action you seek to have the Tax Court review:</p>
+
+        <ol>
+            <li>If you seek review of an IRS Notice of Deficiency, the amount of the deficiency (including any additions to tax or penalties) that you dispute cannot exceed $50,000 for any year.</li>
+            <li>(2) If you seek review of an IRS Notice of Determination Concerning Collection Action, the total amount of unpaid tax cannot exceed $50,000 for all years combined.</li>
+            <li>If you seek review of an IRS Notice of Determination Concerning Your Request for Relief From Joint and Several Liability (or if the IRS failed to send you any Notice of Determination with respect to a request for spousal relief that you submitted to the IRS at least 6 months ago), the amount of spousal relief sought cannot exceed $50,000 for all years combined.</li>
+            <li>If you seek review of an IRS Determination of Worker Classification, the amount in dispute cannot exceed $50,000 for any calendar quarter.</li>
+            <li>If you seek review of an IRS Notice of Final Determination Not to Abate Interest (or if the IRS failed to send you a Notice of Final Determination with respect to a claim for interest abatement that you filed with the IRS at least 180 days before), the amount of the abatement cannot exceed $50,000.</li>
+        </ol>
+
+        <p>This form is also available <a href="https://www.ustaxcourt.gov/forms/petition_kit.pdf">as a downloadable PDF</a>.</p>
+
     </aside>
 
     <div class="usa-width-three-fourths usa-layout-docs-main_content">
-        <h1>Petition</h1>
 
-        <form method="post" action="handler.php">
+        <h1>File a Case</h1>
+
+        <form method="post" action="handler.php" class="usa-form">
             
-            <fieldset>
-                <legend>Petitioners</legend>
+            <div id="petitioners">
+                
+                <h2>Petitioners</h2>
+                
                 <fieldset>
-                    <legend>First Petitioner</legend>
+                    <h3>First Petitioner</h3>
                     <label for="name_1_first">First</label><input type="text" name="name_1_first" id="name_1_first" required>
                     <label for="name_1_middle">Middle</label><input type="text" name="name_1_middle" id="name_1_middle">
                     <label for="name_1_last">Last</label><input type="text" name="name_1_last" id="name_1_last" required>
                 </fieldset>
+
                 <fieldset>
-                    <legend>Second Petitioner</legend>
+                    <h3>Second Petitioner</h3>
                     <label for="name_2_first">First</label><input type="text" name="name_2_first" id="name_2_first">
                     <label for="name_2_middle">Middle</label><input type="text" name="name_2_middle" id="name_2_middle">
                     <label for="name_2_last">Last</label><input type="text" name="name_2_last" id="name_2_last">
                 </fieldset>
-            </fieldset>
 
-            <p>Petitioner(s)<br>
-            v.<br>
-            COMMISSIONER OF INTERNAL REVENUE,<br>
-            Respondent</p>
+            </div>
             
             <fieldset>
-                <legend>1. Please check the appropriate box(es) to show which IRS NOTICE(s) you dispute:</legend>
-                
+                <h2>IRS Notices</h2>
+                <p>Which IRS notice(s) do you dispute?</p>
                 <input type="checkbox" name="notices_disputed" id="deficiency" value="deficiency">
                 <label for="deficiency">Notice of Deficiency</label>
 
@@ -96,308 +176,650 @@
 
                 <input type="checkbox" name="notices_disputed" id="joint-liability" value="joint-liability">
                 <label for="joint-liability">Notice of Determination Concerning Your Request for Relief From Joint and Several Liability*</label>
+
             </fieldset>
             
-            <p>* Please see the Court’s Web site, www.ustaxcourt.gov, or information booklet for additional information if (1) you filed a claim for interest abatement or requested relief from joint and several liability, and the IRS has not made a determination, or (2) the petition involves a worker classification case.</p>
+            <p>* Please see <a href="https://www.ustaxcourt.gov/">the Court’s Web site</a> for additional information if (1) you filed a claim for interest abatement or requested relief from joint and several liability, and the IRS has not made a determination, or (2) the petition involves a worker classification case.</p>
 
             <fieldset>
-                <legend>2. Provide the date(s) the IRS issued the NOTICE(S) checked above and the city and State of the IRS office(s) issuing the NOTICE(S):</legend>
-                <input type="text" name="irs-notice-details">
+                <label for="irs-notice-details">Provide the date(s) the IRS issued the notice(s) checked above and the city and State of the IRS office(s) issuing the notice(s).</label>
+                <textarea id="irs-notice-details" name="irs-notice-details"></textarea>
             </fieldset>
 
             <fieldset>
-                <legend>3. Provide the year(s) or period(s) for which the NOTICE(S) was/were issued:</legend>
-                <input type="text" name="irs-notice-years">
+                <label for="irs-notice-years">Provide the year(s) or period(s) for which the notice(s) was/were issued</label>
+                <input type="text" id="irs-notice-years" name="irs-notice-years">
             </fieldset>
 
             <fieldset>
-                <legend>4. Which tax case procuredures do you want your case conducted under?</legend>
-                <input id="small-tax" name="case-procedures" value="small-tax" type="radio" title="Small tax case procudures"> <label for="small-tax">Small tax case procedures</label>
-                <input id="regular-tax" name="case-procedures" value="regular-tax" type="radio" title="Regular tax case procudures" checked="checked"> <label for="regular-tax">Regular tax case procedures</label>
+                <h2>Case Procedures</h2>
+                <p>Which tax case procedures do you want your case conducted under?</p>
+                <input id="regular-tax" name="case-procedures" value="regular-tax" type="radio" title="Regular tax case procedures" checked="checked"> <label for="regular-tax">Regular tax case procedures</label>
+                <input id="small-tax" name="case-procedures" value="small-tax" type="radio" title="Small tax case procedures"> <label for="small-tax">Small tax case procedures</label>
             </fieldset>
             
-            <p>NOTE: A decision in a “small tax case” cannot be appealed to a Court of Appeals by the taxpayer or the IRS. If you do not check either box, the Court will file your case as a regular tax case.</p>
+            <p>Note: A decision in a “small tax case” cannot be appealed to a Court of Appeals by the taxpayer or the IRS.</p>
+
+            <h2>Objections</h2>
 
             <fieldset>
-                <legend>5. Why do you disagree with the IRS determination in this case? Please list each point separately.</legend>
-                <textarea name="reason-disagree"></textarea>
+                <label for="reason-disagree">Why do you disagree with the IRS determination in this case? Please list each point separately.</label>
+                <textarea id="reason-disagree" name="reason-disagree"></textarea>
             </fieldset>
 
             <fieldset>
-                <legend>6. What are the facts upon which you rely? Please list each point separately.</legend>
-                <textarea name="facts"></textarea>
+                <label for="facts">What are the facts upon which you rely? Please list each point separately.</label>
+                <textarea id="facts" name="facts"></textarea>
             </fieldset>
 
-            <p>You may use additional pages to explain why you disagree with the IRS determination or to state additional facts. Please do not submit tax forms, receipts, or other types of evidence with this petition.</p>
-
-            <p>ENCLOSURES:<br>
-            Which items have you attached to this petition?<br>
+            <h2>Copies of IRS Notices</h2>
+            <p>Attach copies of notices that the IRS has issued to you.</p>
             
-            <input type="checkbox" id="enclosed-notices" name="enclosures">
-            <label for="enclosed-notices">A copy of any notices that the IRS issued to you</label>
-
-            <p><strong>Privacy notice:</strong> Form 4 (Statement of Taxpayer Identification Number) will not be part of the Court’s public files. All other documents filed with the Court, including this Petition and any IRS Notice that you enclose with this Petition, will become part of the Court’s public files. To protect your privacy, you are strongly encouraged to omit or remove from this Petition, from any enclosed IRS Notice, and from any other document (other than Form 4) your taxpayer identification number (e.g., your Social Security number) and certain other confidential information as specified in the Tax Court’s “Notice Regarding Privacy and Public Access to Case Files”, available at <a href="https://www.ustaxcourt.gov/">www.ustaxcourt.gov</a>.</p>
-
-            SIGNATURE OF PETITIONER
-            <label for="petitioner-signature-date">Date</label>
-            <input type="date" id="petitioner-signature-date" name="petitioner-signature-date">
+            <input type="file" id="enclosed-notices" name="enclosed-notices">
             
+            <h2>Contact Information</h2>
             <label for="petitioner-telephone">Telephone Number</label>
             <input type="text" maxlength="12" id="petitioner-telephone" name="petitioner-telephone">
             
             <label for="petitioner-address-street">Mailing Address</label>
             <input type="text" id="petitioner-address-street" name="petitioner-address-street">
 
-            <label for="petitioner-address-city">City</label>
-            <input type="text" id="petitioner-address-city" name="petitioner-address-city">
-            
-            <label for="petitioner-address-state">State</label>
-            <input type="text" maxlength="2" id="petitioner-address-state" name="petitioner-address-state">
+            <div>
+
+                <div class="usa-input-grid usa-input-grid-medium">
+                    <label for="petitioner-address-city">City</label>
+                    <input type="text" id="petitioner-address-city" name="petitioner-address-city">
+                </div>
+
+                <div class="usa-input-grid usa-input-grid-small">
+                    <label for="petitioner-address-state">State</label>
+                    <select id="petitioner-address-state" name="petitioner-address-state">
+                        <option value>— Select —</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                        <option value="AA">AA - Armed Forces Americas</option>
+                        <option value="AE">AE - Armed Forces Africa</option>
+                        <option value="AE">AE - Armed Forces Canada</option>
+                        <option value="AE">AE - Armed Forces Europe</option>
+                        <option value="AE">AE - Armed Forces Middle East</option>
+                        <option value="AP">AP - Armed Forces Pacific</option>
+                    </select>
+                </div>
+            </div>
 
             <label for="petitioner-address-zip">ZIP Code</label>
-            <input type="text" maxlength="5" id="petitioner-address-zip" name="petitioner-address-zip">
+            <input type="text" maxlength="5" pattern="[\d]{5}(-[\d]{4})?" class="usa-input-medium" id="petitioner-address-zip" name="petitioner-address-zip">
             
             <label for="petitioner-state-residence">State of legal residence (if different from the mailing address)</label>
-            <input type="text" id="petitioner-state-residence" name="petitioner-state-residence">
+            <select id="petitioner-state-residence" name="petitioner-state-residence">
+                <option value>— Select —</option>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+                <option value="AA">AA — Armed Forces Americas</option>
+                <option value="AE">AE — Armed Forces Africa</option>
+                <option value="AE">AE — Armed Forces Canada</option>
+                <option value="AE">AE — Armed Forces Europe</option>
+                <option value="AE">AE — Armed Forces Middle East</option>
+                <option value="AP">AP — Armed Forces Pacific</option>
+            </select>
 
             <label for="petitioner-email">E-mail address (if any)</label>
-            <input type="text" id="petitioner-email" name="petitioner-email">
+            <input type="email" id="petitioner-email" name="petitioner-email">
             
-            Signature of Additional Petitioner (e.g., Spouse)
+            <div class="additional-petitioner">
+                <label for="additional-petitioner-signature">Signature of additional petitioner (e.g., spouse)</label>
+                <input type="text" id="additional-petitioner-signature">
+                
+                <label for="additional-petitioner-telephone">Telephone number</label>
+                <input type="text" maxlength="12" id="additional-petitioner-telephone">
+                
+                <label for="additional-petitioner-address-street">Mailing address</label>
+                <input type="text" id="additional-petitioner-address-street">
+                
+                <div>
 
-            <label for="additional-petitioner-signature-date">Date</label>
-            <input type="date" id="additional-petitioner-signature-date">
-            
-            <label for="additional-petitioner-telephone">Telephone Number</label>
-            <input type="text" maxlength="12" id="additional-petitioner-telephone">
-            
-            <label for="additional-petitioner-address-street">Mailing Address</label>
-            <input type="text" id="additional-petitioner-address-street">
+                    <div class="usa-input-grid usa-input-grid-medium">
+                        <label for="additional-petitioner-address-city">City</label>
+                        <input type="text" id="additional-petitioner-address-city" name="additional-petitioner-address-city">
+                    </div>
 
-            <label for="additional-petitioner-address-city">City</label>
-            <input type="text" id="additional-petitioner-address-city">
-            
-            <label for="additional-petitioner-address-state">State</label>
-            <input type="text" maxlength="2" id="additional-petitioner-address-state">
+                    <div class="usa-input-grid usa-input-grid-small">
+                        <label for="additional-petitioner-address-state">State</label>
+                        <select id="additional-petitioner-address-state" name="additional-petitioner-address-state">
+                            <option value>- Select -</option>
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="DC">District of Columbia</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                            <option value="AA">AA - Armed Forces Americas</option>
+                            <option value="AE">AE - Armed Forces Africa</option>
+                            <option value="AE">AE - Armed Forces Canada</option>
+                            <option value="AE">AE - Armed Forces Europe</option>
+                            <option value="AE">AE - Armed Forces Middle East</option>
+                            <option value="AP">AP - Armed Forces Pacific</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <label for="additional-petitioner-state-residence">State of legal residence (if different from the mailing address):</label>
+                <select id="additional-petitioner-state-residence" name="additional-petitioner-state-residence">
+                    <option value>- Select -</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                    <option value="AA">AA - Armed Forces Americas</option>
+                    <option value="AE">AE - Armed Forces Africa</option>
+                    <option value="AE">AE - Armed Forces Canada</option>
+                    <option value="AE">AE - Armed Forces Europe</option>
+                    <option value="AE">AE - Armed Forces Middle East</option>
+                    <option value="AP">AP - Armed Forces Pacific</option>
+                </select>
 
-            <label for="additional-petitioner-address-zip">ZIP Code</label>
-            <input type="text" maxlength="5" id="additional-petitioner-address-zip">
+                <label for="additional-petitioner-email">E-mail address (if any)</label>
+                <input type="text" id="additional-petitioner-email">
             
-            <label for="additional-petitioner-state-residence">State of legal residence (if different from the mailing address):</label>
-            <input type="text" id="additional-petitioner-state-residence">
-
-            <label for="additional-petitioner-email">E-mail address (if any):</label>
-            <input type="text" id="additional-petitioner-email">
+            </div>
+                
+            <label for="counsel-name">Name of counsel, if retained by petitioner(s)</label>
+            <input type="text" name="counsel-name" id="counsel-name">
             
-            <label for="counsel-signature">SIGNATURE OF COUNSEL, IF RETAINED BY PETITIONER(S)</label>
-            <input type="text" id="counsel-signature">
+            <div class="counsel">
+                
+                <h2>Counsel’s Contact Information</h2>
+
+                <label for="counsel-signature">Signature of counsel</label>
+                <input type="text" name="counsel-signature" id="counsel-signature">
+                
+                <label for="counsel-bar-number">Tax Court Bar number</label>
+                <input type="text" name="counsel-bar-number" id="counsel-bar-number">
+                
+                <label for="counsel-address-street">Mailing address</label>
+                <input type="text" name="counsel-address-street" id="counsel-address-street">
+
+                <div>
+
+                    <div class="usa-input-grid usa-input-grid-medium">
+                        <label for="counsel-address-city">City</label>
+                        <input type="text" id="counsel-address-city" name="counsel-address-city">
+                    </div>
+
+                    <div class="usa-input-grid usa-input-grid-small">
+                        <label for="counsel-address-state">State</label>
+                        <select id="counsel-address-state" name="counsel-address-state">
+                            <option value>- Select -</option>
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="DC">District of Columbia</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                            <option value="AA">AA - Armed Forces Americas</option>
+                            <option value="AE">AE - Armed Forces Africa</option>
+                            <option value="AE">AE - Armed Forces Canada</option>
+                            <option value="AE">AE - Armed Forces Europe</option>
+                            <option value="AE">AE - Armed Forces Middle East</option>
+                            <option value="AP">AP - Armed Forces Pacific</option>
+                        </select>
+                    </div>
+                </div>
+
+                <label for="counsel-address-zip">ZIP code</label>
+                <input type="text" maxlength="5" id="counsel-address-zip">
+
+                <label for="counsel-email">E-mail address (if any)</label>
+                <input type="email" id="counsel-email">
+                
+                <label for="counsel-telephone">Telephone number</label>
+                <input type="text" maxlength="12" id="counsel-telephone">
             
-            <label for="counsel-name">NAME OF COUNSEL</label>
-            <input type="text" id="counsel-name">
+            </div>
+
+            <h2>Taxpayer Identification Number</h2>
             
-            <label for="counsel-bar-number">TAX COURT BAR NO.</label>
-            <input type="text" id="counsel-bar-number">
-            
-            <label for="counsel-address-street">MAILING ADDRESS</label>
-            <input type="text" id="counsel-address-street">
-
-            <label for="counsel-address-city">CITY</label>
-            <input type="text" id="counsel-address-city">
-            
-            <label for="counsel-address-state">STATE</label>
-            <input type="text" maxlength="2" id="counsel-address-state">
-
-            <label for="counsel-address-zip">ZIP CODE</label>
-            <input type="text" maxlength="5" id="counsel-address-zip">
-
-            <label for="counsel-email">E-MAIL ADDRESS</label>
-            <input type="text" id="counsel-email">
-            
-            <label for="counsel-telephone">(AREA CODE) TELEPHONE NO.</label>
-            <input type="text" maxlength="12" id="counsel-telephone">
-
-            <hr>
-
-            <p>Petitioner(s)<br>
-            v.<br>
-            COMMISSIONER OF INTERNAL REVENUE,<br>
-            Respondent</p>
-
-            <h2>STATEMENT OF TAXPAYER IDENTIFICATION NUMBER</h2>
-            (E.g., Social Security number(s), employer identification number(s))
+            <p>For example, Social Security number(s), employer identification number(s).</p>
             
             <fieldset>
-
-                <fieldset>
-                    <label for="tin-petitioner-name">Name of Petitioner</label>
-                    <input type="text" id="tin-petitioner-name">
-                    
-                    <label for="tin-petitioner-tin">Petitioner’s Taxpayer Identification Number</label>
-                    <input type="text" maxlength="12" id="tin-petitioner-tin">
-                </fieldset>
-
-                <fieldset>
-                    <label for="tin-petitioner-name">Name of Additional Petitioner</label>
-                    <input type="text" id="tin-additional-petitioner-name">
-                    
-                    <label for="tin-petitioner-tin">Additional Petitioner’s Taxpayer Identification Number</label>
-                    <input type="text" maxlength="12" id="tin-additional-petitioner-tin">
-                </fieldset>
-
+                <label for="tin-petitioner">Petitioner’s Taxpayer Identification Number</label>
+                <input type="text" size="12" maxlength="12" id="tin-petitioner" name="tin-petitioner" pattern="[1-9]\d?-\d{7}">
+            </fieldset>
+                
+            <fieldset class="additional-petitioner">
+                <label for="tin-petitioner-additional">Additional Petitioner’s Taxpayer Identification Number</label>
+                <input type="text" size="12" maxlength="12" name="tin-petitioner-additional" id="tin-petitioner-additional">
             </fieldset>
 
             <p>If either petitioner is seeking relief from joint and several liability on a joint return pursuant to Section 6015, I.R.C. 1986, and Rules 320 through 325, name of the other individual with whom petitioner filed a joint return:</p>
-            <input type="text">
+            <input type="text" id="tin-other-petitioner">
 
-            <p>Taxpayer Identification Number of the other individual, if available:</p>
-            <input type="text" maxlength="12">
+            <p>Taxpayer Identification Number of the other individual, if available</p>
+            <input type="text" size="12" maxlength="12" name="tin-other-tin" id="tin-other-tin">
 
-            <hr>
+            <h2>Request for Place of Trial</h2>
 
-            <p>Petitioner(s)<br>
-            v.<br>
-            COMMISSIONER OF INTERNAL REVENUE,<br>
-            Respondent</p>
-
-            <h2>REQUEST FOR PLACE OF TRIAL</h2>
-
-            <p><b>PLACE AN “X” IN ONLY ONE BOX TO REQUEST THE PLACE OF TRIAL. IF PETITIONER(S) ELECTED TO HAVE THE CASE CONDUCTED AS A SMALL TAX CASE, REQUEST ANY CITY LISTED BELOW; OTHERWISE, REQUEST ANY CITY NOT MARKED WITH AN ASTERISK (*).</b></p>
+            <div id="trial-place">
             
-            <fieldset id="trial-place">
-            <p>ALABAMA<br>
-            <input type="checkbox" id="al-birmingham" value="al-birmingham" name="trial-place"><label for="al-birmingham">Birmingham</label><br>
-            <input type="checkbox" id="al-mobile" value="al-mobile" name="trial-place"><label for="al-mobile">Mobile</label><br>
-            ALASKA<br>
-            <input type="checkbox" id="ak-anchorage" value="ak-anchorage" name="trial-place"><label for="ak-anchorage">Anchorage</label><br>
-            ARIZONA<br>
-            <input type="checkbox" id="az-phoenix" value="az-phoenix" name="trial-place"><label for="az-phoenix">Phoenix</label><br>
-            ARKANSAS<br>
-            <input type="checkbox" id="ar-little-rock" value="ar-little-rock" name="trial-place"><label for="ar-little-rock">Little Rock</label><br>
-            CAIFORNIA<br>
-            <input type="checkbox" id="ca-fresno" value="ca-fresno" name="trial-place"><label for="ca-fresno">Fresno</label><br>
-            <input type="checkbox" id="ca-los-angeles" value="ca-los-angeles" name="trial-place"><label for="ca-los-angeles">Los Angeles</label><br>
-            <input type="checkbox" id="ca-san-diego" value="ca-san-diego" name="trial-place"><label for="ca-san-diego">San Diego</label><br>
-            <input type="checkbox" id="ca-san-francisco" value="ca-san-francisco" name="trial-place"><label for="ca-san-francisco">San Francisco</label><br>
-            COLORADO<br>
-            <input type="checkbox" id="co-denver" value="co-denver" name="trial-place"><label for="co-denver">Denver</label><br>
-            CONNECTICUT<br>
-            <input type="checkbox" id="ct-hartford" value="ct-hartford" name="trial-place"><label for="ct-hartford">Hartford</label><br>
-            DISTRICT OF COLUMBIA<br>
-            <input type="checkbox" id="dc-washington" value="dc-washington" name="trial-place"><label for="dc-washington">Washington</label><br>
-            FLORIDA<br>
-            <input type="checkbox" id="fl-jacksonville" value="fl-jacksonville" name="trial-place"><label for="fl-jacksonville">Jacksonville</label><br>
-            <input type="checkbox" id="fl-miami" value="fl-miami" name="trial-place"><label for="fl-miami">Miami</label><br>
-            <input type="checkbox" id="fl-tallahassee" value="fl-tallahassee" name="trial-place"><label for="fl-tallahassee">Tallahassee*</label><br>
-            <input type="checkbox" id="fl-tampa" value="fl-tampa" name="trial-place"><label for="fl-tampa">Tampa</label><br>
-            GEORGIA<br>
-            <input type="checkbox" id="ga-atlanta" value="ga-atlanta" name="trial-place"><label for="ga-atlanta">Atlanta</label><br>
-            HAWAII<br>
-            <input type="checkbox" id="hi-honolulu" value="hi-honolulu" name="trial-place"><label for="hi-honolulu">Honolulu</label><br>
-            IDAHO<br>
-            <input type="checkbox" id="id-boise" value="id-boise" name="trial-place"><label for="id-boise">Boise</label><br>
-            <input type="checkbox" id="id-pocatello" value="id-pocatello" name="trial-place"><label for="id-pocatello">Pocatello*</label><br>
-            ILLINOIS<br>
-            <input type="checkbox" id="il-chicago" value="il-chicago" name="trial-place"><label for="il-chicago">Chicago</label><br>
-            <input type="checkbox" id="il-peoria" value="il-peoria" name="trial-place"><label for="il-peoria">Peoria*</label><br>
-            INDIANA<br>
-            <input type="checkbox" id="in-indianapolis" value="in-indianapolis" name="trial-place"><label for="in-indianapolis">Indianapolis</label><br>
-            IOWA<br>
-            <input type="checkbox" id="ia-des-moines" value="ia-des-moines" name="trial-place"><label for="ia-des-moines">Des Moines</label><br>
-            KANSAS<br>
-            <input type="checkbox" id="ks-wichita" value="ks-wichita" name="trial-place"><label for="ks-wichita">Wichita</label><br>
-            KENTUCKY<br>
-            <input type="checkbox" id="ky-louisville" value="ky-louisville" name="trial-place"><label for="ky-louisville">Louisville</label><br>
-            LOUISIANA<br>
-            <input type="checkbox" id="la-new-orleans" value="la-new-orleans" name="trial-place"><label for="la-new-orleans">New Orleans</label><br>
-            <input type="checkbox" id="la-shreveport" value="la-shreveport" name="trial-place"><label for="la-shreveport">Shreveport*</label><br>
-            MAINE<br>
-            <input type="checkbox" id="me-portland" value="me-portland" name="trial-place"><label for="me-portland">Portland*</label><br>
-            MARYLAND<br>
-            <input type="checkbox" id="md-baltimore" value="md-baltimore" name="trial-place"><label for="md-baltimore">Baltimore*</label><br>
-            MASSACHUSETTS<br>
-            <input type="checkbox" id="ma-boston" value="ma-boston" name="trial-place"><label for="ma-boston">Boston</label><br>
-            MICHIGAN<br>
-            <input type="checkbox" id="mi-detroit" value="mi-detroit" name="trial-place"><label for="mi-detroit">Detroit</label><br>
-            MINNESOTA<br>
-            <input type="checkbox" id="md-saint-paul" value="md-saint-paul" name="trial-place"><label for="md-saint-paul">St. Paul</label><br>
-            MISSISSIPPI<br>
-            <input type="checkbox" id="ms-jacksonville" value="ms-jacksonville" name="trial-place"><label for="ms-jacksonville">Jacksonville</label><br>
-            MISSOURI<br>
-            <input type="checkbox" id="mo-kansas-city" value="mo-kansas-city" name="trial-place"><label for="mo-kansas-city">Kansas City</label><br>
-            <input type="checkbox" id="mo-saint-louis" value="mo-saint-louis" name="trial-place"><label for="mo-saint-louis">St. Louis</label><br>
-            MONTANA<br>
-            <input type="checkbox" id="mt-billings" value="mt-billings" name="trial-place"><label for="mt-billings">Billings*</label><br>
-            <input type="checkbox" id="mt-helena" value="mt-helena" name="trial-place"><label for="mt-helena">Helena</label><br>
-            NEBRASKA<br>
-            <input type="checkbox" id="ne-omaha" value="ne-omaha" name="trial-place"><label for="ne-omaha">Omaha</label><br>
-            NEVADA<br>
-            <input type="checkbox" id="nv-las-vegas" value="nv-las-vegas" name="trial-place"><label for="nv-las-vegas">Las Vegas</label><br>
-            <input type="checkbox" id="nv-reno" value="nv-reno" name="trial-place"><label for="nv-reno">Reno</label><br>
-            NEW MEXICO<br>
-            <input type="checkbox" id="nm-albuquerque" value="nm-albuquerque" name="trial-place"><label for="nm-albuquerque">Albuquerque</label><br>
-            NEW YORK<br>
-            <input type="checkbox" id="ny-albany" value="ny-albany" name="trial-place"><label for="ny-albany">Albany*</label><br>
-            <input type="checkbox" id="ny-buffalo" value="ny-buffalo" name="trial-place"><label for="ny-buffalo">Buffalo</label><br>
-            <input type="checkbox" id="ny-new-york-city" value="ny-new-york-city" name="trial-place"><label for="ny-new-york-city">New York City</label><br>
-            <input type="checkbox" id="ny-syracuse" value="ny-syracuse" name="trial-place"><label for="ny-syracuse">Syracuse*</label><br>
-            NORTH CAROLINA<br>
-            <input type="checkbox" id="nc-winston-salem" value="nc-winston-salem" name="trial-place"><label for="nc-winston-salem">Winston-Salem</label><br>
-            NORTH DAKOTA<br>
-            <input type="checkbox" id="nd-bismarck" value="nd-bismarck" name="trial-place"><label for="nd-bismarck">Bismarck</label><br>
-            OHIO<br>
-            <input type="checkbox" id="oh-cincinnati" value="oh-cincinnati" name="trial-place"><label for="oh-cincinnati">Cincinnati</label><br>
-            <input type="checkbox" id="oh-cleveland" value="oh-cleveland" name="trial-place"><label for="oh-cleveland">Cleveland</label><br>
-            <input type="checkbox" id="oh-columbus" value="oh-columbus" name="trial-place"><label for="oh-columbus">Columbus</label><br>
-            OKLAHOMA<br>
-            <input type="checkbox" id="ok-oklahoma-city" value="ok-oklahoma-city" name="trial-place"><label for="ok-oklahoma-city">Oklahoma City</label><br>
-            OREGON<br>
-            <input type="checkbox" id="or-portland" value="or-portland" name="trial-place"><label for="or-portland">Portland</label><br>
-            PENNSYLVANIA<br>
-            <input type="checkbox" id="pa-philadelphia" value="pa-philadelphia" name="trial-place"><label for="pa-philadelphia">Philadelphia</label><br>
-            <input type="checkbox" id="pa-pittsburgh" value="pa-pittsburgh" name="trial-place"><label for="pa-pittsburgh">Pittsburgh</label><br>
-            SOUTH CAROLINA<br>
-            <input type="checkbox" id="sc-columbia" value="sc-columbia" name="trial-place"><label for="sc-columbia">Columbia</label><br>
-            SOUTH DAKOTA<br>
-            <input type="checkbox" id="sd-aberdeen" value="sd-aberdeen" name="trial-place"><label for="sd-aberdeen">Aberdeen</label><br>
-            TENNESSEE<br>
-            <input type="checkbox" id="tn-knoxville" value="tn-knoxville" name="trial-place"><label for="tn-knoxville">Knoxville</label><br>
-            <input type="checkbox" id="tn-memphis" value="tn-memphis" name="trial-place"><label for="tn-memphis">Memphis</label><br>
-            <input type="checkbox" id="tn-nashville" value="tn-nashville" name="trial-place"><label for="tn-nashville">Nashville</label><br>
-            TEXAS<br>
-            <input type="checkbox" id="tx-dallas" value="tx-dallas" name="trial-place"><label for="tx-dallas">Dallas</label><br>
-            <input type="checkbox" id="tx-el-paso" value="tx-el-paso" name="trial-place"><label for="tx-el-paso">El Paso</label><br>
-            <input type="checkbox" id="tx-houston" value="tx-houston" name="trial-place"><label for="tx-houston">Houston</label><br>
-            <input type="checkbox" id="tx-lubbock" value="tx-lubbock" name="trial-place"><label for="tx-lubbock">Lubbock</label><br>
-            <input type="checkbox" id="tx-san-antonio" value="tx-san-antonio" name="trial-place"><label for="tx-san-antonio">San Antonio</label><br>
-            UTAH<br>
-            <input type="checkbox" id="ut-salt-lake-city" value="ut-salt-lake-city" name="trial-place"><label for="ut-salt-lake-city">Salt Lake City</label><br>
-            VERMONT<br>
-            <input type="checkbox" id="vt-burlington" value="vt-burlington" name="trial-place"><label for="vt-burlington">Burlington*</label><br>
-            VIRGINIA<br>
-            <input type="checkbox" id="va-richmond" value="va-richmond" name="trial-place"><label for="va-richmond">Richmond</label><br>
-            <input type="checkbox" id="va-roanoke" value="va-roanoke" name="trial-place"><label for="va-roanoke">Roanoke*</label><br>
-            WASHINGTON<br>
-            <input type="checkbox" id="wa-seattle" value="wa-seattle" name="trial-place"><label for="wa-seattle">Seattle</label><br>
-            <input type="checkbox" id="wa-spokane" value="wa-spokane" name="trial-place"><label for="wa-spokane">Spokane</label><br>
-            WEST VIRGINIA<br>
-            <input type="checkbox" id="wv-charleston" value="wv-charleston" name="trial-place"><label for="wv-charleston">Charleston</label><br>
-            WISCONSIN<br>
-            <input type="checkbox" id="wi-milwaukee" value="wi-milwaukee" name="trial-place"><label for="wi-milwaukee">Milwaukee</label><br>
-            WYOMING<br>
-            <input type="checkbox" id="wy-cheyenne" value="wy-cheyenne" name="trial-place"><label for="wy-cheyenne">Cheyenne*</label></p>
-            </fieldset>
+                <p>Alabama
+                <input type="radio" id="al-birmingham" value="al-birmingham" name="trial-place"><label for="al-birmingham">Birmingham</label>
+                <input type="radio" id="al-mobile" value="al-mobile" name="trial-place"><label for="al-mobile">Mobile</label></p>
+                
+                <p>Alaska
+                <input type="radio" id="ak-anchorage" value="ak-anchorage" name="trial-place"><label for="ak-anchorage">Anchorage</label></p>
+                
+                <p>Arizona
+                <input type="radio" id="az-phoenix" value="az-phoenix" name="trial-place"><label for="az-phoenix">Phoenix</label></p>
+                
+                <p>Arkansas
+                <input type="radio" id="ar-little-rock" value="ar-little-rock" name="trial-place"><label for="ar-little-rock">Little Rock</label></p>
+                    
+                <p>California
+                <input type="radio" id="ca-fresno" value="ca-fresno" name="trial-place"><label for="ca-fresno">Fresno</label>
+                <input type="radio" id="ca-los-angeles" value="ca-los-angeles" name="trial-place"><label for="ca-los-angeles">Los Angeles</label>
+                <input type="radio" id="ca-san-diego" value="ca-san-diego" name="trial-place"><label for="ca-san-diego">San Diego</label>
+                <input type="radio" id="ca-san-francisco" value="ca-san-francisco" name="trial-place"><label for="ca-san-francisco">San Francisco</label></p>
+                
+                <p>Colorado
+                <input type="radio" id="co-denver" value="co-denver" name="trial-place"><label for="co-denver">Denver</label></p>
+                
+                <p>Connecticut
+                <input type="radio" id="ct-hartford" value="ct-hartford" name="trial-place"><label for="ct-hartford">Hartford</label></p>
 
-            <p><input type="text"><br>
-            Signature of Petitioner(s) or Counsel</p>
+                <p>District of Columbia
+                <input type="radio" id="dc-washington" value="dc-washington" name="trial-place"><label for="dc-washington">Washington</label></p>
             
-            <input type="date" id="trial-place-signature-date">
-            <label for="trial-place-signature-date">Date</label>
+                <p>Florida
+                <input type="radio" id="fl-jacksonville" value="fl-jacksonville" name="trial-place"><label for="fl-jacksonville">Jacksonville</label>
+                <input type="radio" id="fl-miami" value="fl-miami" name="trial-place"><label for="fl-miami">Miami</label>
+                <input type="radio" id="fl-tallahassee" value="fl-tallahassee" name="trial-place"><label for="fl-tallahassee">Tallahassee*</label>
+                <input type="radio" id="fl-tampa" value="fl-tampa" name="trial-place"><label for="fl-tampa">Tampa</label></p>
+                
+                <p>Georgia
+                <input type="radio" id="ga-atlanta" value="ga-atlanta" name="trial-place"><label for="ga-atlanta">Atlanta</label></p>
+                
+                <p>Hawaii
+                <input type="radio" id="hi-honolulu" value="hi-honolulu" name="trial-place"><label for="hi-honolulu">Honolulu</label></p>
+                
+                <p>Idaho
+                <input type="radio" id="id-boise" value="id-boise" name="trial-place"><label for="id-boise">Boise</label>
+                <input type="radio" id="id-pocatello" value="id-pocatello" name="trial-place"><label for="id-pocatello">Pocatello*</label></p>
+                
+                <p>Illinois
+                <input type="radio" id="il-chicago" value="il-chicago" name="trial-place"><label for="il-chicago">Chicago</label>
+                <input type="radio" id="il-peoria" value="il-peoria" name="trial-place" class="small-tax-venue"><label for="il-peoria" class="small-tax-venue">Peoria*</label></p>
+                
+                <p>Indiana
+                <input type="radio" id="in-indianapolis" value="in-indianapolis" name="trial-place"><label for="in-indianapolis">Indianapolis</label></p>
+                
+                <p>Iowa
+                <input type="radio" id="ia-des-moines" value="ia-des-moines" name="trial-place"><label for="ia-des-moines">Des Moines</label></p>
+                
+                <p>Kansas
+                <input type="radio" id="ks-wichita" value="ks-wichita" name="trial-place"><label for="ks-wichita">Wichita</label></p>
+                
+                <p>Kentucky
+                <input type="radio" id="ky-louisville" value="ky-louisville" name="trial-place"><label for="ky-louisville">Louisville</label></p>
+                
+                <p>Louisiana
+                <input type="radio" id="la-new-orleans" value="la-new-orleans" name="trial-place"><label for="la-new-orleans">New Orleans</label>
+                <input type="radio" id="la-shreveport" value="la-shreveport" name="trial-place" class="small-tax-venue"><label for="la-shreveport" class="small-tax-venue">Shreveport*</label></p>
+                
+                <p>Maine
+                <input type="radio" id="me-portland" value="me-portland" name="trial-place" class="small-tax-venue"><label for="me-portland" class="small-tax-venue">Portland*</label></p>
+                
+                <p>Maryland
+                <input type="radio" id="md-baltimore" value="md-baltimore" name="trial-place" class="small-tax-venue"><label for="md-baltimore" class="small-tax-venue">Baltimore*</label></p>
+                
+                <p>Massachusetts
+                <input type="radio" id="ma-boston" value="ma-boston" name="trial-place"><label for="ma-boston">Boston</label></p>
+                
+                <p>Michigan
+                <input type="radio" id="mi-detroit" value="mi-detroit" name="trial-place"><label for="mi-detroit">Detroit</label></p>
+                
+                <p>Minnesota
+                <input type="radio" id="md-saint-paul" value="md-saint-paul" name="trial-place"><label for="md-saint-paul">St. Paul</label></p>
+                
+                <p>Mississippi
+                <input type="radio" id="ms-jacksonville" value="ms-jacksonville" name="trial-place"><label for="ms-jacksonville">Jacksonville</label></p>
+                
+                <p>Missouri
+                <input type="radio" id="mo-kansas-city" value="mo-kansas-city" name="trial-place"><label for="mo-kansas-city">Kansas City</label>
+                <input type="radio" id="mo-saint-louis" value="mo-saint-louis" name="trial-place"><label for="mo-saint-louis">St. Louis</label></p>
+                
+                <p>Montana
+                <input type="radio" id="mt-billings" value="mt-billings" name="trial-place" class="small-tax-venue"><label for="mt-billings" class="small-tax-venue">Billings*</label>
+                <input type="radio" id="mt-helena" value="mt-helena" name="trial-place"><label for="mt-helena">Helena</label></p>
+                
+                <p>Nebraska
+                <input type="radio" id="ne-omaha" value="ne-omaha" name="trial-place"><label for="ne-omaha">Omaha</label></p>
+                
+                <p>Nevada
+                <input type="radio" id="nv-las-vegas" value="nv-las-vegas" name="trial-place"><label for="nv-las-vegas">Las Vegas</label>
+                <input type="radio" id="nv-reno" value="nv-reno" name="trial-place"><label for="nv-reno">Reno</label></p>
+                
+                <p>New Mexico
+                <input type="radio" id="nm-albuquerque" value="nm-albuquerque" name="trial-place"><label for="nm-albuquerque">Albuquerque</label></p>
+                
+                <p>New York
+                <input type="radio" id="ny-albany" value="ny-albany" name="trial-place" class="small-tax-venue"><label for="ny-albany" class="small-tax-venue">Albany*</label>
+                <input type="radio" id="ny-buffalo" value="ny-buffalo" name="trial-place"><label for="ny-buffalo">Buffalo</label>
+                <input type="radio" id="ny-new-york-city" value="ny-new-york-city" name="trial-place"><label for="ny-new-york-city">New York City</label>
+                <input type="radio" id="ny-syracuse" value="ny-syracuse" name="trial-place" class="small-tax-venue"><label for="ny-syracuse" class="small-tax-venue">Syracuse*</label></p>
+                
+                <p>North Carolina
+                <input type="radio" id="nc-winston-salem" value="nc-winston-salem" name="trial-place"><label for="nc-winston-salem">Winston-Salem</label></p>
+                
+                <p>North Dakota
+                <input type="radio" id="nd-bismarck" value="nd-bismarck" name="trial-place"><label for="nd-bismarck">Bismarck</label></p>
+                
+                <p>Ohio
+                <input type="radio" id="oh-cincinnati" value="oh-cincinnati" name="trial-place"><label for="oh-cincinnati">Cincinnati</label>
+                <input type="radio" id="oh-cleveland" value="oh-cleveland" name="trial-place"><label for="oh-cleveland">Cleveland</label>
+                <input type="radio" id="oh-columbus" value="oh-columbus" name="trial-place"><label for="oh-columbus">Columbus</label></p>
+                
+                <p>Oklahoma
+                <input type="radio" id="ok-oklahoma-city" value="ok-oklahoma-city" name="trial-place"><label for="ok-oklahoma-city">Oklahoma City</label></p>
+                
+                <p>Oregon
+                <input type="radio" id="or-portland" value="or-portland" name="trial-place"><label for="or-portland">Portland</label></p>
+                
+                <p>Pennsylvania
+                <input type="radio" id="pa-philadelphia" value="pa-philadelphia" name="trial-place"><label for="pa-philadelphia">Philadelphia</label>
+                <input type="radio" id="pa-pittsburgh" value="pa-pittsburgh" name="trial-place"><label for="pa-pittsburgh">Pittsburgh</label></p>
+                
+                <p>South Carolina
+                <input type="radio" id="sc-columbia" value="sc-columbia" name="trial-place"><label for="sc-columbia">Columbia</label></p>
+                
+                <p>South Dakota
+                <input type="radio" id="sd-aberdeen" value="sd-aberdeen" name="trial-place"><label for="sd-aberdeen">Aberdeen</label></p>
+                
+                <p>Tennessee
+                <input type="radio" id="tn-knoxville" value="tn-knoxville" name="trial-place"><label for="tn-knoxville">Knoxville</label>
+                <input type="radio" id="tn-memphis" value="tn-memphis" name="trial-place"><label for="tn-memphis">Memphis</label>
+                <input type="radio" id="tn-nashville" value="tn-nashville" name="trial-place"><label for="tn-nashville">Nashville</label></p>
+                
+                <p>Texas
+                <input type="radio" id="tx-dallas" value="tx-dallas" name="trial-place"><label for="tx-dallas">Dallas</label>
+                <input type="radio" id="tx-el-paso" value="tx-el-paso" name="trial-place"><label for="tx-el-paso">El Paso</label>
+                <input type="radio" id="tx-houston" value="tx-houston" name="trial-place"><label for="tx-houston">Houston</label>
+                <input type="radio" id="tx-lubbock" value="tx-lubbock" name="trial-place"><label for="tx-lubbock">Lubbock</label>
+                <input type="radio" id="tx-san-antonio" value="tx-san-antonio" name="trial-place"><label for="tx-san-antonio">San Antonio</label></p>
+                
+                <p>Utah
+                <input type="radio" id="ut-salt-lake-city" value="ut-salt-lake-city" name="trial-place"><label for="ut-salt-lake-city">Salt Lake City</label></p>
+            
+                <p>Vermont
+                <input type="radio" id="vt-burlington" value="vt-burlington" name="trial-place" class="small-tax-venue"><label for="vt-burlington" class="small-tax-venue">Burlington*</label></p>
+                
+                <p>Virginia
+                <input type="radio" id="va-richmond" value="va-richmond" name="trial-place"><label for="va-richmond">Richmond</label>
+                <input type="radio" id="va-roanoke" value="va-roanoke" name="trial-place" class="small-tax-venue"><label for="va-roanoke" class="small-tax-venue">Roanoke*</label></p>
+                
+                <p>Washington
+                <input type="radio" id="wa-seattle" value="wa-seattle" name="trial-place"><label for="wa-seattle">Seattle</label>
+                <input type="radio" id="wa-spokane" value="wa-spokane" name="trial-place"><label for="wa-spokane">Spokane</label></p>
+                
+                <p>West Virginia
+                <input type="radio" id="wv-charleston" value="wv-charleston" name="trial-place"><label for="wv-charleston">Charleston</label></p>
+                
+                <p>Wisconsin
+                <input type="radio" id="wi-milwaukee" value="wi-milwaukee" name="trial-place"><label for="wi-milwaukee">Milwaukee</label></p>
+                
+                <p>Wyoming
+                <input type="radio" id="wy-cheyenne" value="wy-cheyenne" name="trial-place" class="small-tax-venue"><label for="wy-cheyenne" class="small-tax-venue">Cheyenne*</label></p>
+                
+            </div>
 
-            <input type="submit" value="Submit">
+            
+            <label for="final-signature">Signature of Petitioner(s) or Counsel</label>
+            <input type="text" id="final-signature">
+
+            <p><strong>Privacy notice:</strong> Statement of Taxpayer Identification Number will not be part of the Court’s public files. All other documents filed with the Court, including this Petition and any IRS Notice that you enclose with this Petition, will become part of the Court’s public files. To protect your privacy, you are strongly encouraged to omit or remove from this Petition, from any enclosed IRS Notice, and from any other document, your taxpayer identification number (e.g., your Social Security number) and certain other confidential information as specified in the Tax Court’s “<a href="https://ustaxcourt.gov/Privacy%20_Notice.pdf">Notice Regarding Privacy and Public Access to Case Files</a>.”</p>
+
+            <input type="submit" value="File Case">
 
         </form>
+
     </div>
+
 </main>
+
 <footer class="usa-footer usa-footer-medium" role="contentinfo">
     <div class="usa-grid usa-footer-return-to-top">
         <a href="#">Return to top</a>
