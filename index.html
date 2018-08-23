@@ -345,37 +345,22 @@
             <label for="petitioner-email">E-mail address (if any)</label>
             <input type="email" id="petitioner-email" name="petitioner-email">
             
-            Signature of Additional Petitioner (e.g., Spouse)
+            <div class="additional-petitioner">
+                <label for="additional-petitioner-signature">Signature of additional petitioner (e.g., spouse)</label>
+                <input type="text" id="additional-petitioner-signature">
+                
+                <label for="additional-petitioner-telephone">Telephone number</label>
+                <input type="text" maxlength="12" id="additional-petitioner-telephone">
+                
+                <label for="additional-petitioner-address-street">Mailing address</label>
+                <input type="text" id="additional-petitioner-address-street">
+                
+                <div>
 
-            <label for="additional-petitioner-signature-date">Date</label>
-            <input type="date" id="additional-petitioner-signature-date">
-            
-            <label for="additional-petitioner-telephone">Telephone number</label>
-            <input type="text" maxlength="12" id="additional-petitioner-telephone">
-            
-            <label for="additional-petitioner-address-street">Mailing address</label>
-            <input type="text" id="additional-petitioner-address-street">
+                    <div class="usa-input-grid usa-input-grid-medium">
+                        <input type="text" id="additional-petitioner-address-city" name="additional-petitioner-address-city">
+                    </div>
 
-            <label for="additional-petitioner-address-city">City</label>
-            <input type="text" id="additional-petitioner-address-city">
-            
-            <label for="additional-petitioner-address-state">State</label>
-            <input type="text" maxlength="2" id="additional-petitioner-address-state">
-
-            <label for="additional-petitioner-address-zip">ZIP code</label>
-            <input type="text" maxlength="5" id="additional-petitioner-address-zip">
-            
-            <label for="additional-petitioner-state-residence">State of legal residence (if different from the mailing address):</label>
-            <input type="text" id="additional-petitioner-state-residence">
-
-            <label for="additional-petitioner-email">E-mail address (if any)</label>
-            <input type="text" id="additional-petitioner-email">
-            
-            <label for="counsel-signature">Signature of counsel, if retained by petitioner(s)</label>
-            <input type="text" id="counsel-signature">
-            
-            <label for="counsel-name">Name of counsel</label>
-            <input type="text" id="counsel-name">
                     <div class="usa-input-grid usa-input-grid-small">
                         <label for="additional-petitioner-address-state">State</label>
                         <select id="additional-petitioner-address-state" name="additional-petitioner-address-state">
@@ -502,6 +487,9 @@
                     <option value="AE">AE - Armed Forces Middle East</option>
                     <option value="AP">AP - Armed Forces Pacific</option>
                 </select>
+
+                <label for="additional-petitioner-email">E-mail address (if any)</label>
+                <input type="text" id="additional-petitioner-email">
             
             </div>
                 
@@ -613,9 +601,9 @@
                 <input type="text" size="12" maxlength="12" id="tin-petitioner">
             </fieldset>
                 
-            <fieldset>
+            <fieldset class="additional-petitioner">
                 <label for="tin-petitioner-additional">Additional Petitioner’s Taxpayer Identification Number</label>
-                <input type="text" size="12" maxlength="12" id="tin-petitioner-additional">
+                <input type="text" size="12" maxlength="12" name="tin-petitioner-additional" id="tin-petitioner-additional">
             </fieldset>
 
             <p>If either petitioner is seeking relief from joint and several liability on a joint return pursuant to Section 6015, I.R.C. 1986, and Rules 320 through 325, name of the other individual with whom petitioner filed a joint return:</p>
