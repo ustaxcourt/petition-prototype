@@ -358,6 +358,7 @@
                 <div>
 
                     <div class="usa-input-grid usa-input-grid-medium">
+                        <label for="additional-petitioner-address-city">City</label>
                         <input type="text" id="additional-petitioner-address-city" name="additional-petitioner-address-city">
                     </div>
 
@@ -598,7 +599,7 @@
             
             <fieldset>
                 <label for="tin-petitioner">Petitioner’s Taxpayer Identification Number</label>
-                <input type="text" size="12" maxlength="12" id="tin-petitioner">
+                <input type="text" size="12" maxlength="12" id="tin-petitioner" name="tin-petitioner" pattern="[1-9]\d?-\d{7}">
             </fieldset>
                 
             <fieldset class="additional-petitioner">
@@ -609,10 +610,8 @@
             <p>If either petitioner is seeking relief from joint and several liability on a joint return pursuant to Section 6015, I.R.C. 1986, and Rules 320 through 325, name of the other individual with whom petitioner filed a joint return:</p>
             <input type="text" id="tin-other-petitioner">
 
-            <p>Taxpayer Identification Number of the other individual, if available:</p>
-            <input type="text" size="12" maxlength="12" id="tin-other-tin">
-
-            <hr>
+            <p>Taxpayer Identification Number of the other individual, if available</p>
+            <input type="text" size="12" maxlength="12" name="tin-other-tin" id="tin-other-tin">
 
             <h2>Request for Place of Trial</h2>
 
