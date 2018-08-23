@@ -56,6 +56,19 @@
                 }
             });
 
+            // Hide fields that are about the optional counsel.
+            $('.small-tax-venue').hide();
+
+            // Show small-tax-case-only venues, if this is a small-tax case.
+            $("input[name='case-procedures']").change(function() {
+                if ($('#regular-tax:checked').val() == 'regular-tax') {
+                    $('.small-tax-venue').hide();
+                }
+                else {
+                    $('.small-tax-venue').show();
+                }
+            });
+
         });
     </script>
 </head>
@@ -620,8 +633,6 @@
             <input type="text" size="12" maxlength="12" name="tin-other-tin" id="tin-other-tin">
 
             <h2>Request for Place of Trial</h2>
-
-            <p>If petitioner(s) elected to have the case conducted as a small tax case, request any city listed below; otherwise, request any city not marked with an asterisk (*).</p>
 
             <div id="trial-place">
             
