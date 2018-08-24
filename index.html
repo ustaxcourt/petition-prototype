@@ -11,11 +11,17 @@
         crossorigin="anonymous"></script>
     <style>
         #petitioners fieldset {
-            float: left;
             width: 45%;
+            min-width: 325px;
+            display: inline-block;
         }
-            #petitioners fieldset + fieldset {
-                margin-left: 9%;
+            #petitioners fieldset:first-of-type {
+                margin-right: 9%;
+            }
+            #petitioners:after {
+                content: '';
+                display: block;
+                clear: both;
             }
         #trial-place {
             columns: 3;
