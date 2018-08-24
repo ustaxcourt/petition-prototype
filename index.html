@@ -38,6 +38,11 @@
         #trial-place {
             font-weight: bold;
         }
+
+        /* Hide all alerts by default. */
+        .usa-alert {
+            display: none;
+        }
     </style>
 
     <style>
@@ -127,8 +132,8 @@
             $('.additional-petitioner').hide();
 
             // Show additional petitioner fields if there is an additional petitioner.
-            $('#name_2_last').blur(function() {
-                if ($('#name_2_last').val() != '') {
+            $('#name-2-last').blur(function() {
+                if ($('#name-2-last').val() != '') {
                     $('.additional-petitioner').show();
                 }
             });
@@ -156,6 +161,15 @@
                 }
             });
 
+            // Show the notices alert, if the correct notice box is selected.
+            $("input[name='notices-disputed']").change(function() {
+                if ($('input.notices-alert').is(':checked')) {
+                    $('div.notices-alert').show();
+                }
+                else {
+                    $('div.notices-alert').hide();
+                }
+            });
         });
     </script>
 </head>
@@ -325,7 +339,12 @@
 
             </fieldset>
             
-            <p>* Please see <a href="https://www.ustaxcourt.gov/">the Court’s Web site</a> for additional information if (1) you filed a claim for interest abatement or requested relief from joint and several liability, and the IRS has not made a determination, or (2) the petition involves a worker classification case.</p>
+            <div class="usa-alert usa-alert-warning notices-alert" >
+                <div class="usa-alert-body">
+                    <h3 class="usa-alert-heading">Attention</h3>
+                    <p class="usa-alert-text">Please see <a href="https://www.ustaxcourt.gov/">the Court’s Web site</a> for additional information about this notice.</p>
+                </div>
+            </div>
 
             <fieldset>
                 <label for="irs-notice-details">Provide the date(s) the IRS issued the notice(s) checked above and the city and State of the IRS office(s) issuing the notice(s).</label>
