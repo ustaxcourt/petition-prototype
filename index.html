@@ -33,6 +33,87 @@
             font-weight: bold;
         }
     </style>
+
+    <style>
+        /* This CSS stanza is for the USTC header and menu. */
+
+        /* Table reset */
+        table, thead, tbody, tfoot, tr, th, td {
+            display: block;
+            width: auto;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            border: none;
+            border-collapse: inherit;
+            border-spacing: 0;
+            border-color: inherit;
+            vertical-align: inherit;
+            text-align: left;
+            font-weight: inherit;
+            -webkit-border-horizontal-spacing: 0;
+            -webkit-border-vertical-spacing: 0;
+        }
+        th, td {
+            display: inline;
+        }
+        
+        /* USTC styles */
+        #navigation {
+            padding-top: 0px;
+            padding-right: 0px;
+            padding-bottom: 1px;
+            padding-left: 0px;
+        }
+        #navcontainer {
+            padding-top: 1px;
+            padding-right: 0px;
+            padding-bottom: 0px;
+            padding-left: 0px;
+            width: auto;
+        }
+        
+        .white-text-red-bckgrd {
+            color: #FFFFFF;
+            background-color: #990000;
+            margin: 0px;
+            padding: 0px;
+            height: auto;
+            width: auto;
+            font-weight: bold;
+        }
+        .white-text-red-bckgrd a:link {
+        color: #FFFFFF; text-decoration: none; background-color: #990000
+        }
+        .white-text-red-bckgrd a:visited {
+        text-decoration: none ; color: #FFFFFF; background-color: #990000
+        }
+        .white-text-red-bckgrd a:active {
+        color: #FF0000 ; text-decoration: none; background-color: #990000
+        }
+        .white-text-red-bckgrd a:hover {
+        
+        color: #FFFFFF; text-decoration: none; background-color: #990000
+        }
+        
+        td {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold;}
+            td.white-text {  color: #FFFFFF; }
+                td.white-text a { padding: 2px 0 1px 0; }
+                td.white-text a:visited { text-decoration: none ; color: #66CCFF; background-color: #000000}
+                td.white-text a:active { color: #FF0000 ; text-decoration: none; background-color: #000000}
+                td.white-text a:link {  color: #FFFFFF; text-decoration: none; background-color: #000000}
+                td.white-text a:hover {  color: #FF0000; text-decoration: none; background-color: #000000}
+            td.tab-corners { background-color: #000; }
+                td.tab-corners img { padding-top: -3px; margin: -4px; }
+        
+        #masthead {
+            background-color: #000066;
+        }
+        #masthead td {
+            background-color: #000066;
+        }
+    </style>
+
     <script>
         $(document).ready(function() {
 
@@ -112,7 +193,66 @@
 
 <div class="usa-overlay"></div>
 
-<img src="https://ustaxcourt.gov/images/rwb_design_108.gif" width="580" height="108" alt="Masthead graphic" />
+<div id="navcontainer">
+    <div id="navigation">
+        <div id="masthead">
+            <table>
+            <tr>
+                <td><img src="https://ustaxcourt.gov/images/rwb_design_108.gif" width="580" height="108" alt="Masthead graphic" /></td>
+                <td><img src="https://ustaxcourt.gov/images/ustcblue_108.gif" width="135" height="108" alt="Tax Court Shield" /></td>
+            </tr>
+            </table>
+        </div>
+      
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr align="center">
+            <td width="9" bgcolor="#000000" class="tab-corners"><img src="https://ustaxcourt.gov/images/tab_left.gif" width="9" height="18" alt="Left tab" /></td>
+            <td nowrap="nowrap" bgcolor="#000000" class="white-text"><a href="https://ustaxcourt.gov/about.htm">About the Court</a></td>
+            <td width="19" bgcolor="#000000" class="tab-corners"><img src="https://ustaxcourt.gov/images/tab_center.gif" width="19" height="18" alt="Center tab" /></td>
+            <td nowrap="nowrap" bgcolor="#000000" class="white-text"><a href="https://ustaxcourt.gov/UstcInOp/asp/Todays.asp">Today's Opinions</a></td>
+            <td width="19" bgcolor="#000000" class="tab-corners"><img src="https://ustaxcourt.gov/images/tab_center.gif" width="19" height="18" alt="Center tab" /></td>
+            <td nowrap="nowrap" bgcolor="#000000" class="white-text"><a href="https://ustaxcourt.gov/UstcInOp/asp/HistoricOptions.asp">Opinions Search</a></td>
+            <td width="19" bgcolor="#000000" class="tab-corners"><img src="https://ustaxcourt.gov/images/tab_center.gif" width="19" height="18" alt="Center tab" /></td>
+            <td bgcolor="#000000" class="white-text"><a href="https://www.ustaxcourt.gov/InternetOrders/TodaysOrders.aspx">Orders</a></td>
+            <td width="19" bgcolor="#000000" class="tab-corners"><img src="https://ustaxcourt.gov/images/tab_center.gif" width="19" height="18" alt="Center tab" /></td>
+            <td nowrap="nowrap" bgcolor="#000000" class="white-text"><a href="https://ustaxcourt.gov/docket.htm">Docket Inquiry</a></td>
+            <td width="19" bgcolor="#000000" class="tab-corners"><img src="https://ustaxcourt.gov/images/tab_center.gif" width="19" height="18" alt="Center tab" /></td>
+            <td nowrap="nowrap" bgcolor="#000000" class="white-text"><a href="https://ustaxcourt.gov/https://www.ustaxcourt.gov/FinalStatusReport/">Final Status Report</a></td>
+            <td width="19" bgcolor="#000000" class="tab-corners"><img src="https://ustaxcourt.gov/images/tab_center.gif" width="19" height="18" alt="Center tab" /></td>
+            <td nowrap="nowrap" bgcolor="#000000" class="white-text"><a href="https://ustaxcourt.gov/electronic_access.htm">eAccess</a></td>
+            <td width="19" bgcolor="#000000" class="tab-corners"><img src="https://ustaxcourt.gov/images/tab_center.gif" width="19" height="18" alt="Center tab" /></td>
+            <td nowrap="nowrap" bgcolor="#000000" class="white-text"><a href="https://ustaxcourt.gov/forms.htm">Forms</a></td>
+            <td width="19" bgcolor="#000000" class="tab-corners"><img src="https://ustaxcourt.gov/images/tab_center.gif" width="19" height="18" alt="Right tab" /></td>
+            <td bgcolor="#000000" class="white-text"><a href="https://ustaxcourt.gov/judges.htm">Judges</a></td>
+            <td width="9" bgcolor="#000000" class="tab-corners"><img src="https://ustaxcourt.gov/images/tab_right.gif" width="9" height="18" alt="Right tab" /></td>
+        </tr>
+        </table>
+        
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr align="center">
+            <td width="9" bgcolor="#000000" class="tab-corners"><img src="https://ustaxcourt.gov/images/tab_left.gif" width="9" height="18" alt="Left tab" /></td>
+            <td nowrap="nowrap" bgcolor="#000000" class="white-text"><a href="https://ustaxcourt.gov/notice.htm">Rules</a></td>
+            <td width="19" bgcolor="#000000" class="tab-corners"><img src="https://ustaxcourt.gov/images/tab_center.gif" width="19" height="18" alt="Center tab" /></td>
+            <td nowrap="nowrap" bgcolor="#000000" class="white-text"><a href="https://ustaxcourt.gov/press.htm">Press Releases</a></td>
+            <td width="19" bgcolor="#000000" class="tab-corners"><img src="https://ustaxcourt.gov/images/tab_center.gif" width="19" height="18" alt="Center tab" /></td>
+            <td nowrap="nowrap" bgcolor="#000000" class="white-text"><a href="https://ustaxcourt.gov/phone.htm">Telephone Numbers</a></td>
+            <td width="19" bgcolor="#000000" class="tab-corners"><img src="https://ustaxcourt.gov/images/tab_center.gif" width="19" height="18" alt="Center tab" /></td>
+            <td nowrap="nowrap" bgcolor="#000000" class="white-text"><a href="https://ustaxcourt.gov/fees.htm">Fees/Charges</a></td>
+            <td width="19" bgcolor="#000000" class="tab-corners"><img src="https://ustaxcourt.gov/images/tab_center.gif" width="19" height="18" alt="Center tab" /></td>
+            <td nowrap="nowrap" bgcolor="#000000" class="white-text"><a href="taxpayer_info_intro.htm">Taxpayer Information </a></td>
+            <td width="19" bgcolor="#000000" class="tab-corners"><img src="https://ustaxcourt.gov/images/tab_center.gif" width="19" height="18" alt="Right tab" /></td>
+            <td nowrap="nowrap" bgcolor="#000000" class="white-text"><a href="https://ustaxcourt.gov/clinics.htm">Clinics/Student Practice/Calendar Call</a></td>
+            <td width="19" bgcolor="#000000" class="tab-corners"><img src="https://ustaxcourt.gov/images/tab_center.gif" width="19" height="18" alt="Right tab" /></td>
+            <td nowrap="nowrap" bgcolor="#000000" class="white-text"><a href="https://ustaxcourt.gov/employment.htm">Employment</a></td>
+            <td width="19" bgcolor="#000000" class="tab-corners"><img src="https://ustaxcourt.gov/images/tab_center_blk_red.gif" width="19" height="18" alt="Right tab" /></td>
+            <td bgcolor="#000000" class="white-text-red-bckgrd"><a href="https://ustaxcourt.gov/help.htm">Help</a></td>
+            <td width="9" bgcolor="#000000" class="tab-corners"><img src="https://ustaxcourt.gov/images/tab_right_red.gif" width="9" height="18" alt="Right tab" /></td>
+        </tr>
+        </table>
+    </div>
+</div>
+      
+
 <main class="usa-grid usa-section usa-content usa-layout-docs" id="main-content">
 
     <aside class="usa-width-one-fourth usa-layout-docs-sidenav">
